@@ -49,70 +49,21 @@ gtag('config', 'UA-141582279-1');
 ul.updates li { margin: 4px 0; }
 ul.updates time { font-style: italic; }
 
+  .ol-cols {
+    column-gap: 2rem;
+    column-fill: balance;
+  }
+  @media (min-width: 700px) { .ol-cols { column-count: 2; } }
+  @media (min-width: 1100px){ .ol-cols { column-count: 3; } }
+  .ol-cols li {
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    margin-bottom: 0.35rem;
+  }
+  .tag  { color:#00FFFF; font-weight:600; }  /* optional cyan tags */
+  .meta { color:#555; }                       /* optional muted details */
 
-
-  :root{
-    --magenta:#FF00FF;
-    --crimson:#C70039;
-    --cyan:#00FFFF;
-    --orange:#FFA500;
-    --ink:#111;
-    --muted:#555;
-    --card:#fafafa;
-    --line:#e9e9e9;
-  }
-  .students { scroll-margin-top: 80px; }
-  .students h2 {
-    color: var(--magenta);
-    margin: 0.25rem 0 0.75rem;
-    font-size: 1.6rem;
-    text-decoration: underline;
-    font-weight: 800;
-  }
-  .students h3 {
-    color: var(--crimson);
-    text-decoration: underline;
-    margin: 1.25rem 0 0.5rem;
-    font-size: 1.25rem;
-    font-weight: 700;
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 0.75rem 1rem;
-  }
-  .person {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-left: 4px solid var(--crimson);
-    border-radius: 10px;
-    padding: 0.6rem 0.75rem;
-  }
-  .person .name {
-    margin: 0 0 0.25rem;
-    font-weight: 700;
-    color: var(--ink);
-    font-size: 1rem;
-  }
-  .person .tag {
-    font-weight: 600;
-    color: var(--cyan);
-  }
-  .person .detail {
-    margin: 0.1rem 0;
-    color: var(--muted);
-    font-size: 0.95rem;
-  }
-  .person .label { color: var(--ink); font-weight: 600; }
-  .note {
-    margin-top: 1rem;
-    font-size: 0.98rem;
-    line-height: 1.45;
-  }
-  .note em { color: var(--orange); font-style: normal; font-weight: 700; }
-  .note a { color: var(--crimson); text-decoration: underline; }
-  hr.section { border: 0; border-top: 2px solid var(--line); margin: 1rem 0; }
-</style>
+ </style>
 
 
 <TITLE>Paramveer Dhillon</TITLE>
@@ -320,114 +271,42 @@ Much before all this, I was a carefree undergrad studying Electronics & Electric
   <h2>Research Group</h2>
 
   <h3>Ph.D. Students</h3>
-  <div class="grid">
-    <div class="person">
-      <div class="name">Yachuan Liu <span class="tag">[F20–]</span></div>
-      <p class="detail"><span class="label">Last Stop:</span> BS @ UC Berkeley</p>
-    </div>
-    <div class="person">
-      <div class="name">Sanzeed Anwar <span class="tag">[F21–]</span></div>
-      <p class="detail"><span class="label">Last Stop:</span> BS+MEng @ MIT</p>
-    </div>
-    <div class="person">
-      <div class="name">Bohan Zhang <span class="tag">[F22–]</span></div>
-      <p class="detail"><span class="label">Last Stop:</span> MS @ University of Michigan</p>
-    </div>
-  </div>
+  <ol class="ol-cols">
+    <li>Yachuan Liu <span class="tag">[F20–]</span> <span class="meta">— Last Stop: BS @ UC Berkeley</span></li>
+    <li>Sanzeed Anwar <span class="tag">[F21–]</span> <span class="meta">— Last Stop: BS+MEng @ MIT</span></li>
+    <li>Bohan Zhang <span class="tag">[F22–]</span> <span class="meta">— Last Stop: MS @ University of Michigan</span></li>
+  </ol>
 
   <h3>Former Students</h3>
-  <div class="grid">
-    <div class="person">
-      <div class="name">Xiaochun Wei <span class="tag">[BS ’25]</span></div>
-      <p class="detail"><span class="label">Next:</span> M.S. in Data Science @ Harvard University</p>
-    </div>
-    <div class="person">
-      <div class="name">Jiyu Chen <span class="tag">[BS ’23, MS ’24]</span></div>
-      <p class="detail"><span class="label">Next:</span> Software Engineer @ Stripe</p>
-    </div>
-    <div class="person">
-      <div class="name">Xinyue Li <span class="tag">[MS ’23]</span></div>
-      <p class="detail"><span class="label">Next:</span> Ph.D. in Statistics @ Boston University</p>
-    </div>
-    <div class="person">
-      <div class="name">Ella Li <span class="tag">[MS ’23]</span></div>
-      <p class="detail"><span class="label">Next:</span> Ph.D. in CS @ Northeastern University</p>
-    </div>
-    <div class="person">
-      <div class="name">Siqi Ma <span class="tag">[BS ’23]</span></div>
-      <p class="detail"><span class="label">Next:</span> MS in Statistics @ Stanford University</p>
-    </div>
-    <div class="person">
-      <div class="name">Shaochun Zheng <span class="tag">[BS ’23]</span></div>
-      <p class="detail"><span class="label">Next:</span> MS in CS @ UC San Diego</p>
-    </div>
-    <div class="person">
-      <div class="name">Houming Chen <span class="tag">[BS ’23]</span></div>
-      <p class="detail"><span class="label">Next:</span> Ph.D. in CS @ University of Michigan</p>
-    </div>
-    <div class="person">
-      <div class="name">Yushi She <span class="tag">[BS ’23]</span></div>
-      <p class="detail"><span class="label">Next:</span> MS in CS @ Georgia Tech</p>
-    </div>
-    <div class="person">
-      <div class="name">Ted Yuan <span class="tag">[BS ’23]</span></div>
-      <p class="detail"><span class="label">Next:</span> MS in ECE @ Carnegie Mellon University</p>
-    </div>
-    <div class="person">
-      <div class="name">Evan Weissburg <span class="tag">[BS ’23]</span></div>
-      <p class="detail"><span class="label">Next:</span> Software Engineer @ Jane Street Capital</p>
-    </div>
-    <div class="person">
-      <div class="name">Arya Kumar <span class="tag">[BS ’23]</span></div>
-      <p class="detail"><span class="label">Next:</span> Software Engineer @ Jane Street Capital</p>
-    </div>
-    <div class="person">
-      <div class="name">Jupiter Zhu <span class="tag">[BS ’22]</span></div>
-      <p class="detail"><span class="label">Next:</span> MS in CS @ Stanford University</p>
-    </div>
-    <div class="person">
-      <div class="name">Tianyi Li <span class="tag">[BS ’22]</span></div>
-      <p class="detail"><span class="label">Next:</span> MS in INI @ Carnegie Mellon University</p>
-    </div>
-    <div class="person">
-      <div class="name">Xianglong Li <span class="tag">[BS ’22]</span></div>
-      <p class="detail"><span class="label">Next:</span> MS in CS @ Yale University</p>
-    </div>
-    <div class="person">
-      <div class="name">Florence Wu <span class="tag">[BS ’22]</span></div>
-      <p class="detail"><span class="label">Next:</span> MS in CS @ Harvard University</p>
-    </div>
-    <div class="person">
-      <div class="name">Yingzhuo Yu <span class="tag">[BS ’22]</span></div>
-      <p class="detail"><span class="label">Next:</span> MS in CS @ UIUC</p>
-    </div>
-    <div class="person">
-      <div class="name">Xingjian Zhang <span class="tag">[BS ’22]</span></div>
-      <p class="detail"><span class="label">Next:</span> Ph.D. in Information @ UMSI</p>
-    </div>
-    <div class="person">
-      <div class="name">Bohan Zhang <span class="tag">[MS ’22]</span></div>
-      <p class="detail"><span class="label">Next:</span> Ph.D. in Information @ UMSI</p>
-    </div>
-    <div class="person">
-      <div class="name">Zhengyang Shan <span class="tag">[MS ’22]</span></div>
-      <p class="detail"><span class="label">Next:</span> Ph.D. in CDS @ Boston University</p>
-    </div>
-    <div class="person">
-      <div class="name">Jiapeng Guo <span class="tag">[BS ’21]</span></div>
-      <p class="detail"><span class="label">Next:</span> MS in CS @ Columbia University</p>
-    </div>
-    <div class="person">
-      <div class="name">Zilu Wang <span class="tag">[BS ’21]</span></div>
-      <p class="detail"><span class="label">Next:</span> MS in MS&amp;E @ Stanford University</p>
-    </div>
-  </div>
+  <ol class="ol-cols">
+    <li>Xiaochun Wei <span class="meta">[BS ’25, next M.S. in Data Science at Harvard University]</span></li>
+    <li>Jiyu Chen <span class="meta">[BS ’23, MS ’24, next Software Engineer at Stripe]</span></li>
+    <li>Xinyue Li <span class="meta">[MS ’23, next Ph.D. in Statistics at Boston University]</span></li>
+    <li>Ella Li <span class="meta">[MS ’23, next Ph.D. in CS at Northeastern University]</span></li>
+    <li>Siqi Ma <span class="meta">[BS ’23, next MS in Statistics at Stanford University]</span></li>
+    <li>Shaochun Zheng <span class="meta">[BS ’23, next MS in CS at UC San Diego]</span></li>
+    <li>Houming Chen <span class="meta">[BS ’23, next Ph.D. in CS at University of Michigan]</span></li>
+    <li>Yushi She <span class="meta">[BS ’23, next MS in CS at Georgia Tech]</span></li>
+    <li>Ted Yuan <span class="meta">[BS ’23, next MS in ECE at Carnegie Mellon University]</span></li>
+    <li>Evan Weissburg <span class="meta">[BS ’23, next Software Engineer at Jane Street Capital]</span></li>
+    <li>Arya Kumar <span class="meta">[BS ’23, next Software Engineer at Jane Street Capital]</span></li>
+    <li>Jupiter Zhu <span class="meta">[BS ’22, next MS in CS at Stanford University]</span></li>
+    <li>Tianyi Li <span class="meta">[BS ’22, next MS in INI at Carnegie Mellon University]</span></li>
+    <li>Xianglong Li <span class="meta">[BS ’22, next MS in CS at Yale University]</span></li>
+    <li>Florence Wu <span class="meta">[BS ’22, next MS in CS at Harvard University]</span></li>
+    <li>Yingzhuo Yu <span class="meta">[BS ’22, next MS in CS at UIUC]</span></li>
+    <li>Xingjian Zhang <span class="meta">[BS ’22, next Ph.D. in Information at UMSI]</span></li>
+    <li>Bohan Zhang <span class="meta">[MS ’22, next Ph.D. in Information at UMSI]</span></li>
+    <li>Zhengyang Shan <span class="meta">[MS ’22, next Ph.D. in CDS at Boston University]</span></li>
+    <li>Jiapeng Guo <span class="meta">[BS ’21, next MS in CS at Columbia University]</span></li>
+    <li>Zilu Wang <span class="meta">[BS ’21, next MS in MS&amp;E at Stanford University]</span></li>
+  </ol>
 
-<p class="note">
-  I supervise students interested in <span class="label">Human-centric AI and Information Systems</span>. For Fall ’26, I’m recruiting Ph.D. students with strong AI/HCI skills—e.g., building polished front-ends (React/TypeScript), rapid prototyping and user studies, fine-tuning and evaluating LLMs, and solid data/ML engineering/programming skills. The work will be similar in spirit to <a href="https://arxiv.org/abs/2510.13939">this paper</a>.</p>
+  <p class="note">
+    I supervise students interested in <span class="label">Human-centric AI and Information Systems</span>. For Fall ’26 specifically, I’m recruiting Ph.D. students with strong AI/HCI skills—e.g., building polished front-ends (React/TypeScript), rapid prototyping and user studies, fine-tuning and evaluating LLMs, and solid data/ML engineering/programming skills. The nature of your research will be similar in spirit to <a href="https://arxiv.org/abs/2510.13939">this paper</a>.
+  </p>
 
-
- <p class="note">
+  <p class="note">
     <span class="label">Process:</span> <em>Masters/Undergrads (already at University of Michigan)</em> may email their CV and transcripts. <em>Prospective Ph.D. students</em> are encouraged to apply to our Ph.D. program
     <a href="https://www.si.umich.edu/programs/phd-information/how-do-i-apply">here</a> and mention my name as a potential advisor. The deadline is December 1 each year.
   </p>
