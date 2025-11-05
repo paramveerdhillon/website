@@ -49,19 +49,21 @@ gtag('config', 'UA-141582279-1');
 ul.updates li { margin: 4px 0; }
 ul.updates time { font-style: italic; }
 
-  .ol-cols {
-    column-gap: 2rem;
-    column-fill: balance;
-  }
-  @media (min-width: 700px) { .ol-cols { column-count: 2; } }
-  @media (min-width: 1100px){ .ol-cols { column-count: 3; } }
-  .ol-cols li {
-    break-inside: avoid;
-    -webkit-column-break-inside: avoid;
-    margin-bottom: 0.35rem;
-  }
-  .tag  { color:#00FFFF; font-weight:600; }  /* optional cyan tags */
-  .meta { color:#555; }                       /* optional muted details */
+ /* colors to match your original scheme */
+  :root { --magenta:#FF00FF; --crimson:#C70039; --cyan:#00FFFF; --orange:#FFA500; }
+  .students h2 { color: var(--magenta); text-decoration: underline; margin: .25rem 0 .5rem; }
+  .students h3 { color: var(--crimson); text-decoration: underline; margin: 1rem 0 .5rem; }
+
+  /* multi-column ordered lists (keeps numbering) */
+  .ol-cols { column-gap: 2rem; column-fill: balance; }
+  @media (min-width:700px){ .ol-cols { column-count: 2; } }
+  @media (min-width:1100px){ .ol-cols { column-count: 3; } }
+  .ol-cols li { break-inside: avoid; -webkit-column-break-inside: avoid; margin-bottom: .35rem; }
+
+  /* per-item colors (as before) */
+  .tag { color: var(--cyan); font-weight: 600; }                 /* [Fxx–] style */
+  .meta-phd { color: var(--orange); font-style: italic; }        /* PhD "Last Stop" in orange/italics */
+  .meta-former { color: var(--cyan); }                           /* Former-student details in cyan */
 
  </style>
 
@@ -272,38 +274,38 @@ Much before all this, I was a carefree undergrad studying Electronics & Electric
 
   <h3>Ph.D. Students</h3>
   <ol class="ol-cols">
-    <li>Yachuan Liu <span class="tag">[F20–]</span> <span class="meta">— Last Stop: BS @ UC Berkeley</span></li>
-    <li>Sanzeed Anwar <span class="tag">[F21–]</span> <span class="meta">— Last Stop: BS+MEng @ MIT</span></li>
-    <li>Bohan Zhang <span class="tag">[F22–]</span> <span class="meta">— Last Stop: MS @ University of Michigan</span></li>
+    <li>Yachuan Liu <span class="tag">[F20–]</span> <span class="meta-phd">— Last Stop: BS @ UC Berkeley</span></li>
+    <li>Sanzeed Anwar <span class="tag">[F21–]</span> <span class="meta-phd">— Last Stop: BS+MEng @ MIT</span></li>
+    <li>Bohan Zhang <span class="tag">[F22–]</span> <span class="meta-phd">— Last Stop: MS @ University of Michigan</span></li>
   </ol>
 
   <h3>Former Students</h3>
   <ol class="ol-cols">
-    <li>Xiaochun Wei <span class="meta">[BS ’25, next M.S. in Data Science at Harvard University]</span></li>
-    <li>Jiyu Chen <span class="meta">[BS ’23, MS ’24, next Software Engineer at Stripe]</span></li>
-    <li>Xinyue Li <span class="meta">[MS ’23, next Ph.D. in Statistics at Boston University]</span></li>
-    <li>Ella Li <span class="meta">[MS ’23, next Ph.D. in CS at Northeastern University]</span></li>
-    <li>Siqi Ma <span class="meta">[BS ’23, next MS in Statistics at Stanford University]</span></li>
-    <li>Shaochun Zheng <span class="meta">[BS ’23, next MS in CS at UC San Diego]</span></li>
-    <li>Houming Chen <span class="meta">[BS ’23, next Ph.D. in CS at University of Michigan]</span></li>
-    <li>Yushi She <span class="meta">[BS ’23, next MS in CS at Georgia Tech]</span></li>
-    <li>Ted Yuan <span class="meta">[BS ’23, next MS in ECE at Carnegie Mellon University]</span></li>
-    <li>Evan Weissburg <span class="meta">[BS ’23, next Software Engineer at Jane Street Capital]</span></li>
-    <li>Arya Kumar <span class="meta">[BS ’23, next Software Engineer at Jane Street Capital]</span></li>
-    <li>Jupiter Zhu <span class="meta">[BS ’22, next MS in CS at Stanford University]</span></li>
-    <li>Tianyi Li <span class="meta">[BS ’22, next MS in INI at Carnegie Mellon University]</span></li>
-    <li>Xianglong Li <span class="meta">[BS ’22, next MS in CS at Yale University]</span></li>
-    <li>Florence Wu <span class="meta">[BS ’22, next MS in CS at Harvard University]</span></li>
-    <li>Yingzhuo Yu <span class="meta">[BS ’22, next MS in CS at UIUC]</span></li>
-    <li>Xingjian Zhang <span class="meta">[BS ’22, next Ph.D. in Information at UMSI]</span></li>
-    <li>Bohan Zhang <span class="meta">[MS ’22, next Ph.D. in Information at UMSI]</span></li>
-    <li>Zhengyang Shan <span class="meta">[MS ’22, next Ph.D. in CDS at Boston University]</span></li>
-    <li>Jiapeng Guo <span class="meta">[BS ’21, next MS in CS at Columbia University]</span></li>
-    <li>Zilu Wang <span class="meta">[BS ’21, next MS in MS&amp;E at Stanford University]</span></li>
+    <li>Xiaochun Wei <span class="meta-former">[BS ’25, next M.S. in Data Science at Harvard University]</span></li>
+    <li>Jiyu Chen <span class="meta-former">[BS ’23, MS ’24, next Software Engineer at Stripe]</span></li>
+    <li>Xinyue Li <span class="meta-former">[MS ’23, next Ph.D. in Statistics at Boston University]</span></li>
+    <li>Ella Li <span class="meta-former">[MS ’23, next Ph.D. in CS at Northeastern University]</span></li>
+    <li>Siqi Ma <span class="meta-former">[BS ’23, next MS in Statistics at Stanford University]</span></li>
+    <li>Shaochun Zheng <span class="meta-former">[BS ’23, next MS in CS at UC San Diego]</span></li>
+    <li>Houming Chen <span class="meta-former">[BS ’23, next Ph.D. in CS at University of Michigan]</span></li>
+    <li>Yushi She <span class="meta-former">[BS ’23, next MS in CS at Georgia Tech]</span></li>
+    <li>Ted Yuan <span class="meta-former">[BS ’23, next MS in ECE at Carnegie Mellon University]</span></li>
+    <li>Evan Weissburg <span class="meta-former">[BS ’23, next Software Engineer at Jane Street Capital]</span></li>
+    <li>Arya Kumar <span class="meta-former">[BS ’23, next Software Engineer at Jane Street Capital]</span></li>
+    <li>Jupiter Zhu <span class="meta-former">[BS ’22, next MS in CS at Stanford University]</span></li>
+    <li>Tianyi Li <span class="meta-former">[BS ’22, next MS in INI at Carnegie Mellon University]</span></li>
+    <li>Xianglong Li <span class="meta-former">[BS ’22, next MS in CS at Yale University]</span></li>
+    <li>Florence Wu <span class="meta-former">[BS ’22, next MS in CS at Harvard University]</span></li>
+    <li>Yingzhuo Yu <span class="meta-former">[BS ’22, next MS in CS at UIUC]</span></li>
+    <li>Xingjian Zhang <span class="meta-former">[BS ’22, next Ph.D. in Information at UMSI]</span></li>
+    <li>Bohan Zhang <span class="meta-former">[MS ’22, next Ph.D. in Information at UMSI]</span></li>
+    <li>Zhengyang Shan <span class="meta-former">[MS ’22, next Ph.D. in CDS at Boston University]</span></li>
+    <li>Jiapeng Guo <span class="meta-former">[BS ’21, next MS in CS at Columbia University]</span></li>
+    <li>Zilu Wang <span class="meta-former">[BS ’21, next MS in MS&amp;E at Stanford University]</span></li>
   </ol>
 
   <p class="note">
-    I supervise students interested in <span class="label">Human-centric AI and Information Systems</span>. For Fall ’26 specifically, I’m recruiting Ph.D. students with strong AI/HCI skills—e.g., building polished front-ends (React/TypeScript), rapid prototyping and user studies, fine-tuning and evaluating LLMs, and solid data/ML engineering/programming skills. The nature of your research will be similar in spirit to <a href="https://arxiv.org/abs/2510.13939">this paper</a>.
+    I supervise students interested in <span class="label">Human-centric AI and Information Systems</span>. For Fall ’26, I’m recruiting Ph.D. students with strong AI/HCI skills—e.g., building polished front-ends (React/TypeScript), rapid prototyping and user studies, fine-tuning and evaluating LLMs, and solid data/ML engineering/programming skills. The nature of you research project will be similar in spirit to <a href="https://arxiv.org/abs/2510.13939">this paper</a>.</p>
   </p>
 
   <p class="note">
@@ -311,7 +313,7 @@ Much before all this, I was a carefree undergrad studying Electronics & Electric
     <a href="https://www.si.umich.edu/programs/phd-information/how-do-i-apply">here</a> and mention my name as a potential advisor. The deadline is December 1 each year.
   </p>
 </section>
-
+  
 <a name="awards"></a>
 <hr>
 <STRONG> <font color=#FF00FF><u>Awards</u> </font> </STRONG>
