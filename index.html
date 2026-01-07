@@ -1,1445 +1,553 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-141582279-1"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-gtag('config', 'UA-141582279-1');
-</script>
+  <title>Paramveer Dhillon</title>
+  <meta name="description" content="Research in machine learning, artificial intelligence,social networks, network science, natural language processing, computational social science and related areas" />
+  <meta name="keywords" content="machine learning, artificial intelligence,social networks, network science, natural language processing, computational social science" />
 
-        <style>
-            p {
-                font-family: monaco,Consolas,Lucida Console,monospace;
-                font-size:14px;
-                }
-            h1 {
-                font-family: monaco,Consolas,Lucida Console,monospace;
-                }
-            h2 {
-                font-family: monaco,Consolas,Lucida Console,monospace;
-                }
-            body {
-                font-family: monaco,Consolas,Lucida Console,monospace;
-                font-size:14px;
-                }
-            h3 {
-            font-family: monaco,Consolas,Lucida Console,monospace;
-            font-size:12px;
-        }
+  <style>
+    /* --- mobile consistency --- */
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    ol li::marker { font-size: 1em; }
 
-            p {
-                padding-left: 5px;
-                padding-right: 5px;
-            }
-            h1 {
-                padding-left: 5px;
-                padding-right: 5px;
-            }
-            body {
-                padding-left: 5px;
-                padding-right: 5px;
-                text-align: left;
-            }
+    /* --- base typography / layout (keeps original look) --- */
+    body, p, h1, h2, h3 {
+      font-family: monaco, Consolas, "Lucida Console", monospace;
+    }
+    body, p { font-size: 14px; }
+    h3 { font-size: 12px; }
 
-          ul.updates { list-style-type: disc; padding-left: 25px; margin-top: 6px; }
-ul.updates li { margin: 4px 0; }
-ul.updates time { font-style: italic; }
+    body {
+      padding-left: 5px;
+      padding-right: 5px;
+      text-align: left;
+      background: #000;
+      color: #fff;
+    }
 
- /* colors to match your original scheme */
-  :root { --magenta:#FF00FF; --crimson:#C70039; --cyan:#00FFFF; --orange:#FFA500; }
-  .students h2 { color: var(--magenta); text-decoration: underline; margin: .25rem 0 .5rem; }
-  .students h3 { color: var(--crimson); text-decoration: underline; margin: 1rem 0 .5rem; }
+    p, h1, h2 {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
 
-  /* multi-column ordered lists (keeps numbering) */
-  .ol-cols { column-gap: 2rem; column-fill: balance; }
-  @media (min-width:700px){ .ol-cols { column-count: 2; } }
-  @media (min-width:1100px){ .ol-cols { column-count: 3; } }
-  .ol-cols li { break-inside: avoid; -webkit-column-break-inside: avoid; margin-bottom: .35rem; }
+    /* --- link colors (matches body link/vlink/alink) --- */
+    a, a:visited { color: #00FF00; }
+    a:active { color: red; }
 
-  /* per-item colors (as before) */
-  .tag { color: var(--cyan); font-weight: 600; }                 /* [Fxx–] style */
-  .meta-phd { color: var(--orange); font-style: italic; }        /* PhD "Last Stop" in orange/italics */
-  .meta-former { color: var(--cyan); }                           /* Former-student details in cyan */
+    /* --- color utility classes (replaces <font color=...>) --- */
+    :root { --magenta:#FF00FF; --crimson:#C70039; --cyan:#00FFFF; --orange:#FFA500; }
+    .c-white { color: #fff; }
+    .c-black { color: #000; }
+    .c-magenta { color: var(--magenta); }
+    .c-crimson { color: var(--crimson); }
+    .c-cyan { color: var(--cyan); }
+    .c-orange { color: var(--orange); }
+    .c-yellow { color: yellow; }
+    .c-red { color: red; }
+    .c-green { color: green; }
+    .c-darkred { color: darkred; }
+    .c-blue { color: blue; }
 
- </style>
+    /* anchors that were intentionally white text inside links */
+    .link-white, .link-white:visited { color: #fff; }
+    .link-white:active { color: red; }
 
+    /* --- updates list (same as before, just not duplicated inline) --- */
+    ul.updates { list-style-type: disc; padding-left: 25px; margin-top: 6px; }
+    ul.updates li { margin: 4px 0; }
+    ul.updates time { font-style: italic; }
 
-<TITLE>Paramveer Dhillon</TITLE>
-<META name="description" content="Research in machine learning, artificial intelligence,social networks, network science, natural language processing, computational social science and related areas">
-<META name="keywords" content="machine learning, artificial intelligence,social networks, network science, natural language processing, computational social science">
+    /* --- students section (kept as-is, just grouped) --- */
+    .students h2 { color: var(--magenta); text-decoration: underline; margin: .25rem 0 .5rem; }
+    .students h3 { color: var(--crimson); text-decoration: underline; margin: 1rem 0 .5rem; }
+
+    /* multi-column ordered lists (keeps numbering) */
+    .ol-cols { column-gap: 2rem; column-fill: balance; }
+    @media (min-width:700px){ .ol-cols { column-count: 2; } }
+    @media (min-width:1100px){ .ol-cols { column-count: 3; } }
+    .ol-cols li { break-inside: avoid; -webkit-column-break-inside: avoid; margin-bottom: .35rem; }
+
+    /* per-item colors (as before) */
+    .tag { color: var(--cyan); font-weight: 600; }                 /* [Fxx–] style */
+    .meta-phd { color: var(--orange); font-style: italic; }        /* PhD "Last Stop" */
+    .meta-former { color: var(--cyan); }                           /* Former-student details */
+  </style>
 </head>
 
-<body bgcolor=black text=white link=#00FF00 vlink=#00FF00 alink=red>
-
-<hr>
-
-<table>
-
-<tr>
-
-<td>
-<font color=white>
-
-<IMG SRC=photos/great-wall.png WIDTH=250 style="border:2px solid white;"  HSPACE=5 ALT=[PHOTO]>
-<a name="contact"></a>
-<p>
-<p>
-<p>
-<b><h1><font color=#FF00FF>PARAMVEER DHILLON</font></h1></b>
-<p>
-Associate Professor<br>
-<a href="https://www.si.umich.edu">School of Information</a><br>
-<!--<a href="https://cse.engin.umich.edu">Computer Science &amp; Engineering</a> <font color="cyan">(courtesy)</font><br> -->
-<a href="https://www.umich.edu"> University of Michigan</a><br><br>
-Affiliate Faculty<br>
-<a href="https://midas.umich.edu">Michigan Institute for Data Science (MIDAS)</a><br>
-<a href="https://e-hail.umich.edu">E-Health &amp; AI Initiative (e-HAIL)</a><br><br><br>
-    
-Digital Fellow<br>
-<a href="http://ide.mit.edu"> MIT Initiative on the Digital Economy</a>
-<br>
-<p>
-<p>
-  
-<font color="cyan">Office:</font>5544 Leinweber, 2200 Hayward St., Ann Arbor, MI 48109<br>
-<font color="cyan">Phone:</font> 734-764-5876<br>
-<font color="cyan">Email:</font> lastname followed by the letter 'p' at umich dot edu<br>
-<font color="cyan">Twitter:</font> <a href="https://twitter.com/dhillon_p">@dhillon_p</a><br>
-<font color="cyan">Google Scholar:</font> <a href="https://scholar.google.co.in/citations?user=vu5Mw_0AAAAJ&hl=en">https://goo.gl/FEsnE8</a><br>
-<p>
-<td>
-</tr>
-</table>
-
-</font>
-<p>
-
-<hr>
-<STRONG> <font color=#FF00FF> <u>Quick Navigation Links</u> </font> </STRONG>
-<p>
-Please follow the links below to navigate to specific subsections of the site or just scroll down to view all the content.
-<p>
-
-<font color=white>
-<a href="#researchinterests">Research Interests</a> </li>
-</b></a>
-</font>
-&nbsp
-<a href="#updates">Recent Updates</a> </li>
-</b></a>
-</font>
-&nbsp
-<font color=white>
-    <a href="#selectpubs">Publications</a> </li>
-    </b></a>
-    </font>
-&nbsp
-<font color=white>
-    <a href="#profbio">Professional Background</a> </li>
-    </b></a>
-    </font>
-&nbsp
-<font color=white>
-<a href="#teaching">Teaching</a> </li>
-</b></a>
-</font>
-&nbsp
-<font color=white>
-<a href="#awards">Awards</a> </li>
-</b></a>
-</font>
-&nbsp
-<font color=white>
-<a href="#students">Research Group</a> </li>
-</b></a>
-</font>
-&nbsp
-<font color=white>
-<a href="#service">Service</a> </li>
-</b></a>
-</font>
-&nbsp
-<font color=white>
-<a href="#software">Software</a> </li>
-</b></a>
-</font>
-&nbsp
-<p>
-<hr>
-<p>
-
-
-<a name="researchinterests"></a>
-<STRONG> <font color=#FF00FF><u>Research Interests</u></font> </STRONG>
-
-  <p>My current research focuses on how Large Language Models (LLMs) reshape human creativity, decision-making, and information consumption</font>. My work bridges the disciplines of AI, Human-Computer Interaction (HCI), and Information Systems and is broadly situated in Human-Centered AI.</p>
-
-<p><font color="yellow"><strong>Key Research Areas:</strong></font></p>
-
-<p><strong><font color="orange">Human-LLM Collaboration/Co-writing and Creative Labor Markets</font></strong>: We investigate how people create with LLMs, examining questions of authorship, ownership, and market disruption. Our empirical work provides the first systematic evidence that fine-tuned LLMs can produce undetectable, professional-quality writing that competes directly with human authors.</p>
-
-<p><strong><font color="orange">Personalization and Human-Centric Recommender Systems</font></strong>: We design LLM-based systems that respect human agency while providing personalized experiences. This includes developing temptation-aware recommendation algorithms that help users navigate between immediate desires and long-term goals, and creating personalization methods that adapt to individual preferences without reinforcing filter bubbles.</p>
-
-<p><strong><font color="orange">Causal Methods for Language-Based Interventions</font></strong>: We advance causal inference techniques for high-dimensional text treatments. Our recent work introduces policy learning frameworks for natural language action spaces, enabling LLMs to learn optimal intervention strategies through gradient-based optimization on language embeddings. This line of work supports a variety of applications ranging from therapeutic dialogue refinement to content moderation, where each text-based decision impacts future outcomes.</p>
-
-<p><font color="yellow"><strong>Active Research Threads:</strong></font></p>
-<ul>
-<li><font color="cyan">Empirical measurement of LLM impacts on creative labor markets and copyright</font> [ArXiv '25b <a href="https://arxiv.org/abs/2510.13939">arXiv:2510.13939</a>].</li>
-<li><font color="orange">Temptation-aware recommender systems that balance engagement with user well-being</font> [RecSys '25, WWW '24, Management Science '24, Marketing Science '21] </li>
-<li><font color="cyan">Multi-stage decision-making with natural language actions</font>  [ArXiv '25a; <a href="https://arxiv.org/abs/2502.17538">arXiv:2502.17538</a>].</li>
-<li><font color="orange">Psychological ownership and agency in human-LLM collaboration</font>.</li>
-<li><font color="cyan">Causal frameworks for evaluating text-based interventions</font> [NAACL '24].</li>
-</ul>
-
-
-<hr>
-<a name="updates"></a>
-<STRONG> <font color=#FF00FF><u>Recent Updates</u></font> </STRONG>
-<p>
-
-<ul class="updates" style="list-style-type:disc; padding-left: 25px; margin-top: 6px;">
-    <li><time datetime="2026-01-10">Jan 2026</time>— <strong><font color="orange">Appointment</font></strong>: Excited to be an Associate Editor (AE) at <a href="https://pubsonline.informs.org/page/mnsc/editorial-board">Management Science</a>.</li>
-
-  <li><time datetime="2026-01-03">Jan 2026</time> — <strong><font color="orange">Paper</font></strong>: EACL '26 paper on "Ex-Ante Inference in LLMs" <a href="https://arxiv.org/pdf/2505.19533">arXiv</a>.</li>
-
-  <li><time datetime="2025-10-25">Oct 2025</time> — <strong><font color="cyan">Paper</font></strong>: New paper on AI and Copyright <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5606570">SSRN</a>. [Coverage in the <a href=https://www.newyorker.com/culture/the-weekend-essay/what-if-readers-like-ai-generated-fiction>New Yorker</a>, <a href="https://marginalrevolution.com/marginalrevolution/2025/11/do-readers-prefer-ai-writers.html">Marginal Revolution</a> (by Tyler Cowen).] </li>
-  
-  <li><time datetime="2025-10-27">Oct 2025</time> — <strong><font color="green">Award</font></strong>: Best Paper Award to our paper on "Widespread LLM Usage and Evaluator Behavior in Credit Screening" @ INFORMS e-Business Society <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5616650">SSRN</a>. </li>
-  
-  <li><time datetime="2025-10-25">Oct 2025</time> — <strong><font color="cyan">Travel</font></strong>: Travel to CIST/INFORMS @ Atlanta, GA. </li>
-
-  <li><time datetime="2025-10-15">Oct 2025</time> — <strong><font color="orange">Paper</font></strong>: CSCW '25 paper on "Unexpected engagement patterns on Twitter" <a href="https://arxiv.org/pdf/2509.08128">arXiv</a>.</li>
-
-  <li><time datetime="2025-09-25">Sep 2025</time> — <strong><font color="orange">Paper</font></strong>: RecSys '25 paper on "Recommendation and Temptation" <a href="https://arxiv.org/abs/2412.10595">arXiv</a>.</li>
-
-  <li><time datetime="2025-06-20">Jun 2025</time> — <strong><font color="green">Award Finalist</font></strong>: "Targeting for Long-term outcomes" paper was a finalist for John D. C. Little Best Paper Award!</li>
-
-  <li><time datetime="2025-06-15">Jun 2025</time> — <strong><font color="orange">Paper</font></strong>: ACL '25 (Findings) paper on "Dual Debiasing for Noisy In-context Learning (ICL)" <a href="https://arxiv.org/pdf/2506.00418">arXiv</a>.</li>
-
-  <li><time datetime="2025-05-15">May–Aug 2025</time> — <strong><font color="cyan">Travel</font></strong>: Travel to Shanghai and Tokyo for summer teaching. Say hi if you're around!</li>
-
-  <li><time datetime="2025-02-24">Feb 2025</time> — <strong><font color="orange">Paper</font></strong>: New preprint on "Policy Learning in Combinatorial Natural Language Action Spaces" <a href="https://arxiv.org/pdf/2502.17538">arXiv</a>.</li>
-
-  <li><time datetime="2025-02-01">Feb 2025</time> — <strong><font color="orange">Paper</font></strong>: PNAS Nexus paper on "How Digital Paywalls Shape News Coverage" <a href="https://academic.oup.com/pnasnexus/article/4/1/pgae511/7960035">PDF</a>.</li>
-
-  <li><time datetime="2025-01-15">Jan 2025</time> — <strong><font color="orange">Paper</font></strong>: EPJ Data Science on "Demographic Disparity in Wikipedia Coverage" <a href="https://link.springer.com/content/pdf/10.1140/epjds/s13688-025-00530-4.pdf">PDF</a>.</li>
-</ul>
-
-<p>
-<hr>
-
-
-
-
-  
- <hr>
-<a name="profbio"></a>
-<STRONG> <font color=#FF00FF><u>Professional Background</u></font> </STRONG>
-<p>
-I am an Associate Professor in the <a href="https://www.si.umich.edu">School of Information</a> at the <a href="https://www.umich.edu">University of Michigan</a> (tenured 2025) and a Digital Fellow at <a href="http://ide.mit.edu">MIT's Initiative on the Digital Economy</a>. I joined Michigan as an Assistant Professor in 2019.
-</p>
-  
-<p>
-I hold an A.M. in <a href="https://statistics.wharton.upenn.edu">Statistics</a> and an M.S.E. and a Ph.D. (2015) in <a href="https://www.cis.upenn.edu">Computer Science</a> all from the <a href="https://www.upenn.edu">University of Pennsylvania</a>, where I was advised by Professors <a href="http://www.cis.upenn.edu/~ungar/">Lyle Ungar</a>, <a href="http://deanfoster.net/index.pl">Dean Foster</a>, and <a href="https://www.med.upenn.edu/apps/faculty/index.php/g5455356/p10656">James Gee</a>. My dissertation, <font color="cyan">"Advances in Spectral Learning with Applications to Text Analysis and Brain Imaging,"</font> received the <font color="orange">Morris and Dorothy Rubinoff Award</font> for outstanding doctoral dissertation. This work introduced theoretically-grounded spectral methods for learning word embeddings (<font color="cyan">JMLR 2015</font>, <font color="cyan">ICML 2012</font>, <font color="cyan">NeurIPS 2011</font>) and brain image segmentation (<font color="cyan">NeuroImage 2014</font>), achieving both computational efficiency and provable convergence guarantees. My contributions to spectral decomposition and context-dependent representation learning provided early theoretical foundations for understanding how distributed representations capture semantic relationships, principles that remain central to modern transformer architectures. I also did other research in my Ph.D. on establishing connections between PCA and ridge regression (<font color="cyan">JMLR 2013</font>) and on provably faster row and column subsampling algorithms for least squares regression (<font color="cyan">NeurIPS 2013a,b</font>).
-</p>
-
-<p>
-Following my Ph.D., I completed a postdoctoral fellowship at <a href="http://www.web.mit.edu/">MIT</a> with Professor <a href="https://mitsloan.mit.edu/faculty/directory/sinan-kayhan-aral">Sinan Aral</a>, where I worked on problems at the intersection of Machine Learning, Causal Inference, Network Science, and Information Systems. This research program produced several foundational contributions: establishing tractable methods for influence maximization under empirically-grounded network models (<font color="cyan">Nature Human Behaviour 2018</font>); designing optimal digital paywall strategies that balance subscription revenue with content demand leveraging quasi-experiments (<font color="cyan">Management Science 2020</font>); developing neural matrix factorization techniques for modeling temporal dynamics in user preferences (<font color="cyan">Marketing Science 2021</font>); quantifying the information advantages of network brokers through novel diversity metrics (<font color="cyan">Management Science 2023</font>); and creating surrogate-index methods for optimizing long-term outcomes in sequential decision problems (<font color="cyan">Management Science 2024</font>).
-</p>
-  
-<p>
-Much before all this, I was a carefree undergrad studying Electronics & Electrical Communication Engineering at <a href="https://pec.ac.in">PEC</a> in my hometown of <a href="https://en.wikipedia.org/wiki/Chandigarh">Chandigarh</a>, India. I developed my interest in AI/ML and the desire to pursue a Ph.D. as a result of three memorable summer internships, before my Ph.D., at <a href="http://www.cvc.uab.es/?page_id=226">Computer Vision Center @ Barcelona</a> <font color="cyan">[summer 2006]</font>, <a href="https://ei.is.tuebingen.mpg.de">Max Planck Institute for Intelligent Systems @ Tuebingen</a> <font color="cyan">[summer 2008]</font>, and <a href="https://www.isi.edu/research_groups/nlg/home">Information Sciences Institute/USC @ Los Angeles</a> <font color="cyan">[summer 2009]</font>.
-<p>
-
-
-
-<a name="teaching"></a>
-<hr>
-<STRONG> <font color=#FF00FF><u> Teaching</u> </font> </STRONG>
-<p>
-<ol>
-<li><font color=cyan>ECE 4760J</font><em><font color=orange> Data Mining: Methods and Applications</font></em> <font color=darkred>@ UM-Shanghai Jiao Tong University Joint Institute (JI)</font>  @  S25.<br>
-<li><font color=cyan>SI 671/721</font><em><font color=orange> Data Mining: Methods and Applications</font></em> @  F[19-24].<br>
-<li><font color=cyan>SIADS 642 [online]</font><em><font color=orange> Deep Learning I</font></em> <font color=darkred>[Developed from scratch]</font> @  F20-present.</font><br>
-<li><font color=cyan>SIADS 647 [online]</font><em><font color=orange> Deep Learning II (Generative AI)</font></em> <font color=darkred>[Developed from scratch]</font>  @  W25.</font><br>  
-<li><font color=cyan>SIADS 532,632 [online]</font><em><font color=orange> Data Mining I, II</font></em>  @  W21-present.<br>
-</ol>
-<p>
-
-<a id="students"></a>
-<hr class="section">
-
-<section class="students">
-  <h2>Research Group</h2>
-
-  <h3>Ph.D. Students</h3>
-  <ol class="ol-cols">
-    <li>Yachuan Liu <span class="tag">[F20–]</span> <span class="meta-phd">— Last Stop: BS @ UC Berkeley</span></li>
-    <li>Sanzeed Anwar <span class="tag">[F21–]</span> <span class="meta-phd">— Last Stop: BS+MEng @ MIT</span></li>
-    <li>Bohan Zhang <span class="tag">[F22–]</span> <span class="meta-phd">— Last Stop: MS @ University of Michigan</span></li>
-  </ol>
-
-  <h3>Former Students</h3>
-  <ol class="ol-cols">
-    <li>Xiaochun Wei <span class="meta-former">[BS ’25, next M.S. in Data Science at Harvard University]</span></li>
-    <li>Jiyu Chen <span class="meta-former">[BS ’23, MS ’24, next Software Engineer at Stripe]</span></li>
-    <li>Xinyue Li <span class="meta-former">[MS ’23, next Ph.D. in Statistics at Boston University]</span></li>
-    <li>Ella Li <span class="meta-former">[MS ’23, next Ph.D. in CS at Northeastern University]</span></li>
-    <li>Siqi Ma <span class="meta-former">[BS ’23, next MS in Statistics at Stanford University]</span></li>
-    <li>Shaochun Zheng <span class="meta-former">[BS ’23, next MS in CS at UC San Diego]</span></li>
-    <li>Houming Chen <span class="meta-former">[BS ’23, next Ph.D. in CS at University of Michigan]</span></li>
-    <li>Yushi She <span class="meta-former">[BS ’23, next MS in CS at Georgia Tech]</span></li>
-    <li>Ted Yuan <span class="meta-former">[BS ’23, next MS in ECE at Carnegie Mellon University]</span></li>
-    <li>Evan Weissburg <span class="meta-former">[BS ’23, next Software Engineer at Jane Street Capital]</span></li>
-    <li>Arya Kumar <span class="meta-former">[BS ’23, next Software Engineer at Jane Street Capital]</span></li>
-    <li>Jupiter Zhu <span class="meta-former">[BS ’22, next MS in CS at Stanford University]</span></li>
-    <li>Tianyi Li <span class="meta-former">[BS ’22, next MS in INI at Carnegie Mellon University]</span></li>
-    <li>Xianglong Li <span class="meta-former">[BS ’22, next MS in CS at Yale University]</span></li>
-    <li>Florence Wu <span class="meta-former">[BS ’22, next MS in CS at Harvard University]</span></li>
-    <li>Yingzhuo Yu <span class="meta-former">[BS ’22, next MS in CS at UIUC]</span></li>
-    <li>Xingjian Zhang <span class="meta-former">[BS ’22, next Ph.D. in Information at UMSI]</span></li>
-    <li>Bohan Zhang <span class="meta-former">[MS ’22, next Ph.D. in Information at UMSI]</span></li>
-    <li>Zhengyang Shan <span class="meta-former">[MS ’22, next Ph.D. in CDS at Boston University]</span></li>
-    <li>Jiapeng Guo <span class="meta-former">[BS ’21, next MS in CS at Columbia University]</span></li>
-    <li>Zilu Wang <span class="meta-former">[BS ’21, next MS in MS&amp;E at Stanford University]</span></li>
-  </ol>
-
-  <p class="note">
-    I supervise students interested in <span class="label">Human-centric AI and Information Systems</span>. For Fall ’26, I’m specifically recruiting Ph.D. students with strong AI/HCI skills—e.g., building polished front-ends (React/TypeScript), rapid prototyping and performing online user studies, fine-tuning and evaluating LLMs, and solid data/ML engineering/programming skills. The nature of the research project will be similar in spirit to <a href="https://arxiv.org/abs/2510.13939">this paper</a>.</p>
-  </p>
-
-  <p class="note">
-    <em>Masters/Undergrads (already at University of Michigan)</em> may email their CV and transcripts. <em>Prospective Ph.D. students</em> are encouraged to apply to our Ph.D. program
-    <a href="https://www.si.umich.edu/programs/phd-information/how-do-i-apply">here</a> and mention my name as a potential advisor. The deadline is December 1 each year.
-  </p>
-</section>
-  
-<a name="awards"></a>
-<hr>
-<STRONG> <font color=#FF00FF><u>Awards</u> </font> </STRONG>
-<p>
-<ol>
-<li> <FONT COLOR="white">INFORMS Annual Conference</font> <font color=cyan> (e-Business Society; Best Paper Award),</font> <FONT COLOR="#C70039">2025.</font>  
- <li> <FONT COLOR="white">John D. C. Little Best Paper Award</font> <font color=cyan> (Finalist),</font> <FONT COLOR="#C70039">2025.</font>   
-<li> <FONT COLOR="white">INFORMS Information Systems Society (ISS)</font> <font color=cyan> Gordon B. Davis Young Scholar Award,</font> <FONT COLOR="#C70039">2021.</font>
-<li> <FONT COLOR="white">INFORMS Annual Conference</font> <font color=cyan> (e-Business Society; Best Paper Award),</font> <FONT COLOR="#C70039">2020.</font>
-<li> <FONT COLOR="white">Workshop on Information Systems and Economics (WISE)</font> <font color=cyan> (Runner-up Best Paper Award),</font> <FONT COLOR="#C70039">2016.</font>
-<li> <FONT COLOR="white">Rubinoff Best Doctoral Dissertation Award </font> <font color=cyan>(awarded by <a href="https://www.cis.upenn.edu">Penn CIS</a>),</font></a> <FONT COLOR="#C70039">2015.</font>
-</ol>
-<p>
-
-  <a name="service"></a>
+<body>
   <hr>
-  <STRONG> <font color=#FF00FF><u>Service to the Profession</u> </font> </STRONG>
-  <p>
-  <ol>
-  <li> <a href="https://pubsonline.informs.org/page/mnsc/editorial-board"><FONT COLOR="white">Associate Editor</font></a> <FONT COLOR="#C70039">Management Science [2026-].</font>
-    <li> <a href="https://jmlr.org/editorial-board.html"><FONT COLOR="white">Editorial Board</font></a> <FONT COLOR="#C70039">JMLR [2020-].</font>
-  <li> Ad-hoc Reviewer: <FONT COLOR="#C70039">Nature</font>, <FONT COLOR="#C70039">Nature Human Behaviour</font>, <FONT COLOR="#C70039">Nature Communications</font>, <FONT COLOR="#C70039">PNAS</font>, <FONT COLOR="#C70039">JAIR</font>, <FONT COLOR="#C70039">Information Science Research (ISR)</font>, <FONT COLOR="#C70039">Management Science</font>, <FONT COLOR="#C70039">Marketing Science</font>, <FONT COLOR="#C70039">IEEE TKDE</font>, <FONT COLOR="#C70039">IEEE TPAMI.</font>
-  <li> Reviewer/PC/SPC Member @ Core AI/ML Conferences: <font color=cyan>[every year since 2013]</font> <FONT COLOR="#C70039">NeurIPS</font>, <FONT COLOR="#C70039">ICML</font>, <FONT COLOR="#C70039">AISTATS</font>, <FONT COLOR="#C70039">ICLR</font>, <FONT COLOR="#C70039">AAAI</font>, <FONT COLOR="#C70039">IJCAI.</font>
-  <li> Reviewer/PC/SPC Member @ Core Information Systems Conferences: <font color=cyan>[every year since 2017]</font> <FONT COLOR="#C70039">ICIS</font>, <FONT COLOR="#C70039">CIST,</font> <FONT COLOR="#C70039">WISE.</font>
- <li> Reviewer/PC/SPC Member @ Core NLP/Computational Social Science Conferences: <font color=cyan>[sporadically] </font> <FONT COLOR="#C70039">The Web Conference (WWW)</font>, <FONT COLOR="#C70039">EMNLP</font>, <FONT COLOR="#C70039">NAACL</font>, <FONT COLOR="#C70039">ICWSM</font>, <FONT COLOR="#C70039">IC2S2.</font>
-  
-</ol>
-  <p>
 
-  <a name="selectpubs"></a>
+  <table>
+    <tr>
+      <td>
+        <img src="photos/great-wall.png" width="250" style="border:2px solid white;" hspace="5" alt="[PHOTO]" />
+
+        <a name="contact" id="contact"></a>
+        <p></p>
+        <p></p>
+        <p></p>
+
+        <h1><span class="c-magenta">PARAMVEER DHILLON</span></h1>
+
+        <p>
+          Associate Professor<br>
+          <a href="https://www.si.umich.edu">School of Information</a><br>
+          <!--<a href="https://cse.engin.umich.edu">Computer Science &amp; Engineering</a> <span class="c-cyan">(courtesy)</span><br> -->
+          <a href="https://www.umich.edu"> University of Michigan</a><br><br>
+
+          Affiliate Faculty<br>
+          <a href="https://midas.umich.edu">Michigan Institute for Data Science (MIDAS)</a><br>
+          <a href="https://e-hail.umich.edu">E-Health &amp; AI Initiative (e-HAIL)</a><br><br><br>
+
+          Digital Fellow<br>
+          <a href="http://ide.mit.edu"> MIT Initiative on the Digital Economy</a>
+          <br>
+        </p>
+
+        <p></p>
+        <p></p>
+
+        <p>
+          <span class="c-cyan">Office:</span>5544 Leinweber, 2200 Hayward St., Ann Arbor, MI 48109<br>
+          <span class="c-cyan">Phone:</span> 734-764-5876<br>
+          <span class="c-cyan">Email:</span> lastname followed by the letter 'p' at umich dot edu<br>
+          <span class="c-cyan">Twitter:</span> <a href="https://twitter.com/dhillon_p">@dhillon_p</a><br>
+          <span class="c-cyan">Google Scholar:</span> <a href="https://scholar.google.co.in/citations?user=vu5Mw_0AAAAJ&hl=en">https://goo.gl/FEsnE8</a><br>
+        </p>
+      </td>
+    </tr>
+  </table>
+
   <hr>
+  <strong><span class="c-magenta"><u>Quick Navigation Links</u></span></strong>
+  <p>Please follow the links below to navigate to specific subsections of the site or just scroll down to view all the content.</p>
+
   <p>
-  <STRONG> <font color=#FF00FF><u> Selected Publications</u> </font> </STRONG>
-  
-<p>
-<font color=red> Below is a list of selected publications that highlight my core research interests and contributions.</font> A complete list of all my publications is available <a href="https://goo.gl/FEsnE8">here</a>.
+    <a href="#researchinterests">Research Interests</a>
+    &nbsp;
+    <a href="#updates">Recent Updates</a>
+    &nbsp;
+    <a href="#selectpubs">Publications</a>
+    &nbsp;
+    <a href="#profbio">Professional Background</a>
+    &nbsp;
+    <a href="#teaching">Teaching</a>
+    &nbsp;
+    <a href="#awards">Awards</a>
+    &nbsp;
+    <a href="#students">Research Group</a>
+    &nbsp;
+    <a href="#service">Service</a>
+    &nbsp;
+    <a href="#software">Software</a>
   </p>
-  
-  <!--
-  <p>
-  Note: <FONT COLOR="cyan"><i> The list below only contains the published papers. I do not list the various {preprints, working papers, papers under review} below for a variety of reasons. Please get in touch with me if you're interested in seeing them.</i> </font>
-  <p> -->
+
+  <hr>
+
+  <a name="researchinterests" id="researchinterests"></a>
+  <strong><span class="c-magenta"><u>Research Interests</u></span></strong>
+
+  <p>My current research focuses on how Large Language Models (LLMs) reshape human creativity, decision-making, and information consumption. My work bridges the disciplines of AI, Human-Computer Interaction (HCI), and Information Systems and is broadly situated in Human-Centered AI.</p>
+
+  <p><strong class="c-yellow">Key Research Areas:</strong></p>
+
+  <p><strong><span class="c-orange">Human-LLM Collaboration/Co-writing and Creative Labor Markets</span></strong>: We investigate how people create with LLMs, examining questions of authorship, ownership, and market disruption. Our empirical work provides the first systematic evidence that fine-tuned LLMs can produce undetectable, professional-quality writing that competes directly with human authors.</p>
+
+  <p><strong><span class="c-orange">Personalization and Human-Centric Recommender Systems</span></strong>: We design LLM-based systems that respect human agency while providing personalized experiences. This includes developing temptation-aware recommendation algorithms that help users navigate between immediate desires and long-term goals, and creating personalization methods that adapt to individual preferences without reinforcing filter bubbles.</p>
+
+  <p><strong><span class="c-orange">Causal Methods for Language-Based Interventions</span></strong>: We advance causal inference techniques for high-dimensional text treatments. Our recent work introduces policy learning frameworks for natural language action spaces, enabling LLMs to learn optimal intervention strategies through gradient-based optimization on language embeddings. This line of work supports a variety of applications ranging from therapeutic dialogue refinement to content moderation, where each text-based decision impacts future outcomes.</p>
+
+  <p><strong class="c-yellow">Active Research Threads:</strong></p>
+  <ul>
+    <li><span class="c-cyan">Empirical measurement of LLM impacts on creative labor markets and copyright</span> [ArXiv '25b <a href="https://arxiv.org/abs/2510.13939">arXiv:2510.13939</a>].</li>
+    <li><span class="c-orange">Temptation-aware recommender systems that balance engagement with user well-being</span> [RecSys '25, WWW '24, Management Science '24, Marketing Science '21]</li>
+    <li><span class="c-cyan">Multi-stage decision-making with natural language actions</span>  [ArXiv '25a; <a href="https://arxiv.org/abs/2502.17538">arXiv:2502.17538</a>].</li>
+    <li><span class="c-orange">Psychological ownership and agency in human-LLM collaboration</span>.</li>
+    <li><span class="c-cyan">Causal frameworks for evaluating text-based interventions</span> [NAACL '24].</li>
+  </ul>
+
+  <hr>
+  <a name="updates" id="updates"></a>
+  <strong><span class="c-magenta"><u>Recent Updates</u></span></strong>
+
+  <ul class="updates">
+    <li><time datetime="2026-01-10">Jan 2026</time>— <strong><span class="c-orange">Appointment</span></strong>: Excited to be an Associate Editor (AE) at <a href="https://pubsonline.informs.org/page/mnsc/editorial-board">Management Science</a>.</li>
+
+    <li><time datetime="2026-01-03">Jan 2026</time> — <strong><span class="c-orange">Paper</span></strong>: EACL '26 paper on "Ex-Ante Inference in LLMs" <a href="https://arxiv.org/pdf/2505.19533">arXiv</a>.</li>
+
+    <li><time datetime="2025-10-25">Oct 2025</time> — <strong><span class="c-cyan">Paper</span></strong>: New paper on AI and Copyright <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5606570">SSRN</a>. [Coverage in the <a href="https://www.newyorker.com/culture/the-weekend-essay/what-if-readers-like-ai-generated-fiction">New Yorker</a>, <a href="https://marginalrevolution.com/marginalrevolution/2025/11/do-readers-prefer-ai-writers.html">Marginal Revolution</a> (by Tyler Cowen).]</li>
+
+    <li><time datetime="2025-10-27">Oct 2025</time> — <strong><span class="c-green">Award</span></strong>: Best Paper Award to our paper on "Widespread LLM Usage and Evaluator Behavior in Credit Screening" @ INFORMS e-Business Society <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5616650">SSRN</a>.</li>
+
+    <li><time datetime="2025-10-25">Oct 2025</time> — <strong><span class="c-cyan">Travel</span></strong>: Travel to CIST/INFORMS @ Atlanta, GA.</li>
+
+    <li><time datetime="2025-10-15">Oct 2025</time> — <strong><span class="c-orange">Paper</span></strong>: CSCW '25 paper on "Unexpected engagement patterns on Twitter" <a href="https://arxiv.org/pdf/2509.08128">arXiv</a>.</li>
+
+    <li><time datetime="2025-09-25">Sep 2025</time> — <strong><span class="c-orange">Paper</span></strong>: RecSys '25 paper on "Recommendation and Temptation" <a href="https://arxiv.org/abs/2412.10595">arXiv</a>.</li>
+
+    <li><time datetime="2025-06-20">Jun 2025</time> — <strong><span class="c-green">Award Finalist</span></strong>: "Targeting for Long-term outcomes" paper was a finalist for John D. C. Little Best Paper Award!</li>
+
+    <li><time datetime="2025-06-15">Jun 2025</time> — <strong><span class="c-orange">Paper</span></strong>: ACL '25 (Findings) paper on "Dual Debiasing for Noisy In-context Learning (ICL)" <a href="https://arxiv.org/pdf/2506.00418">arXiv</a>.</li>
+
+    <li><time datetime="2025-05-15">May–Aug 2025</time> — <strong><span class="c-cyan">Travel</span></strong>: Travel to Shanghai and Tokyo for summer teaching. Say hi if you're around!</li>
+
+    <li><time datetime="2025-02-24">Feb 2025</time> — <strong><span class="c-orange">Paper</span></strong>: New preprint on "Policy Learning in Combinatorial Natural Language Action Spaces" <a href="https://arxiv.org/pdf/2502.17538">arXiv</a>.</li>
+
+    <li><time datetime="2025-02-01">Feb 2025</time> — <strong><span class="c-orange">Paper</span></strong>: PNAS Nexus paper on "How Digital Paywalls Shape News Coverage" <a href="https://academic.oup.com/pnasnexus/article/4/1/pgae511/7960035">PDF</a>.</li>
+
+    <li><time datetime="2025-01-15">Jan 2025</time> — <strong><span class="c-orange">Paper</span></strong>: EPJ Data Science on "Demographic Disparity in Wikipedia Coverage" <a href="https://link.springer.com/content/pdf/10.1140/epjds/s13688-025-00530-4.pdf">PDF</a>.</li>
+  </ul>
+
+  <p></p>
+  <hr>
+
+  <a name="profbio" id="profbio"></a>
+  <strong><span class="c-magenta"><u>Professional Background</u></span></strong>
 
   <p>
-  <sup>*</sup>indicates alphabetical author listing.
-  <p>
+    I am an Associate Professor in the <a href="https://www.si.umich.edu">School of Information</a> at the <a href="https://www.umich.edu">University of Michigan</a> (tenured 2025) and a Digital Fellow at <a href="http://ide.mit.edu">MIT's Initiative on the Digital Economy</a>. I joined Michigan as an Assistant Professor in 2019.
+  </p>
 
+  <p>
+    I hold an A.M. in <a href="https://statistics.wharton.upenn.edu">Statistics</a> and an M.S.E. and a Ph.D. (2015) in <a href="https://www.cis.upenn.edu">Computer Science</a> all from the <a href="https://www.upenn.edu">University of Pennsylvania</a>, where I was advised by Professors <a href="http://www.cis.upenn.edu/~ungar/">Lyle Ungar</a>, <a href="http://deanfoster.net/index.pl">Dean Foster</a>, and <a href="https://www.med.upenn.edu/apps/faculty/index.php/g5455356/p10656">James Gee</a>. My dissertation, <span class="c-cyan">"Advances in Spectral Learning with Applications to Text Analysis and Brain Imaging,"</span> received the <span class="c-orange">Morris and Dorothy Rubinoff Award</span> for outstanding doctoral dissertation. This work introduced theoretically-grounded spectral methods for learning word embeddings (<span class="c-cyan">JMLR 2015</span>, <span class="c-cyan">ICML 2012</span>, <span class="c-cyan">NeurIPS 2011</span>) and brain image segmentation (<span class="c-cyan">NeuroImage 2014</span>), achieving both computational efficiency and provable convergence guarantees. My contributions to spectral decomposition and context-dependent representation learning provided early theoretical foundations for understanding how distributed representations capture semantic relationships, principles that remain central to modern transformer architectures. I also did other research in my Ph.D. on establishing connections between PCA and ridge regression (<span class="c-cyan">JMLR 2013</span>) and on provably faster row and column subsampling algorithms for least squares regression (<span class="c-cyan">NeurIPS 2013a,b</span>).
+  </p>
+
+  <p>
+    Following my Ph.D., I completed a postdoctoral fellowship at <a href="http://www.web.mit.edu/">MIT</a> with Professor <a href="https://mitsloan.mit.edu/faculty/directory/sinan-kayhan-aral">Sinan Aral</a>, where I worked on problems at the intersection of Machine Learning, Causal Inference, Network Science, and Information Systems. This research program produced several foundational contributions: establishing tractable methods for influence maximization under empirically-grounded network models (<span class="c-cyan">Nature Human Behaviour 2018</span>); designing optimal digital paywall strategies that balance subscription revenue with content demand leveraging quasi-experiments (<span class="c-cyan">Management Science 2020</span>); developing neural matrix factorization techniques for modeling temporal dynamics in user preferences (<span class="c-cyan">Marketing Science 2021</span>); quantifying the information advantages of network brokers through novel diversity metrics (<span class="c-cyan">Management Science 2023</span>); and creating surrogate-index methods for optimizing long-term outcomes in sequential decision problems (<span class="c-cyan">Management Science 2024</span>).
+  </p>
+
+  <p>
+    Much before all this, I was a carefree undergrad studying Electronics &amp; Electrical Communication Engineering at <a href="https://pec.ac.in">PEC</a> in my hometown of <a href="https://en.wikipedia.org/wiki/Chandigarh">Chandigarh</a>, India. I developed my interest in AI/ML and the desire to pursue a Ph.D. as a result of three memorable summer internships, before my Ph.D., at <a href="http://www.cvc.uab.es/?page_id=226">Computer Vision Center @ Barcelona</a> <span class="c-cyan">[summer 2006]</span>, <a href="https://ei.is.tuebingen.mpg.de">Max Planck Institute for Intelligent Systems @ Tuebingen</a> <span class="c-cyan">[summer 2008]</span>, and <a href="https://www.isi.edu/research_groups/nlg/home">Information Sciences Institute/USC @ Los Angeles</a> <span class="c-cyan">[summer 2009]</span>.
+  </p>
+
+  <a name="teaching" id="teaching"></a>
+  <hr>
+  <strong><span class="c-magenta"><u> Teaching</u></span></strong>
+
+  <p>
+    <ol>
+      <li><span class="c-cyan">ECE 4760J</span><em><span class="c-orange"> Data Mining: Methods and Applications</span></em> <span class="c-darkred">@ UM-Shanghai Jiao Tong University Joint Institute (JI)</span>  @  S25.<br></li>
+      <li><span class="c-cyan">SI 671/721</span><em><span class="c-orange"> Data Mining: Methods and Applications</span></em> @  F[19-24].<br></li>
+      <li><span class="c-cyan">SIADS 642 [online]</span><em><span class="c-orange"> Deep Learning I</span></em> <span class="c-darkred">[Developed from scratch]</span> @  F20-present.<br></li>
+      <li><span class="c-cyan">SIADS 647 [online]</span><em><span class="c-orange"> Deep Learning II (Generative AI)</span></em> <span class="c-darkred">[Developed from scratch]</span>  @  W25.<br></li>
+      <li><span class="c-cyan">SIADS 532,632 [online]</span><em><span class="c-orange"> Data Mining I, II</span></em>  @  W21-present.<br></li>
+    </ol>
+  </p>
+
+  <a id="students"></a>
+  <hr class="section">
+
+  <section class="students">
+    <h2>Research Group</h2>
+
+    <h3>Ph.D. Students</h3>
+    <ol class="ol-cols">
+      <li>Yachuan Liu <span class="tag">[F20–]</span> <span class="meta-phd">— Last Stop: BS @ UC Berkeley</span></li>
+      <li>Sanzeed Anwar <span class="tag">[F21–]</span> <span class="meta-phd">— Last Stop: BS+MEng @ MIT</span></li>
+      <li>Bohan Zhang <span class="tag">[F22–]</span> <span class="meta-phd">— Last Stop: MS @ University of Michigan</span></li>
+    </ol>
+
+    <h3>Former Students</h3>
+    <ol class="ol-cols">
+      <li>Xiaochun Wei <span class="meta-former">[BS ’25, next M.S. in Data Science at Harvard University]</span></li>
+      <li>Jiyu Chen <span class="meta-former">[BS ’23, MS ’24, next Software Engineer at Stripe]</span></li>
+      <li>Xinyue Li <span class="meta-former">[MS ’23, next Ph.D. in Statistics at Boston University]</span></li>
+      <li>Ella Li <span class="meta-former">[MS ’23, next Ph.D. in CS at Northeastern University]</span></li>
+      <li>Siqi Ma <span class="meta-former">[BS ’23, next MS in Statistics at Stanford University]</span></li>
+      <li>Shaochun Zheng <span class="meta-former">[BS ’23, next MS in CS at UC San Diego]</span></li>
+      <li>Houming Chen <span class="meta-former">[BS ’23, next Ph.D. in CS at University of Michigan]</span></li>
+      <li>Yushi She <span class="meta-former">[BS ’23, next MS in CS at Georgia Tech]</span></li>
+      <li>Ted Yuan <span class="meta-former">[BS ’23, next MS in ECE at Carnegie Mellon University]</span></li>
+      <li>Evan Weissburg <span class="meta-former">[BS ’23, next Software Engineer at Jane Street Capital]</span></li>
+      <li>Arya Kumar <span class="meta-former">[BS ’23, next Software Engineer at Jane Street Capital]</span></li>
+      <li>Jupiter Zhu <span class="meta-former">[BS ’22, next MS in CS at Stanford University]</span></li>
+      <li>Tianyi Li <span class="meta-former">[BS ’22, next MS in INI at Carnegie Mellon University]</span></li>
+      <li>Xianglong Li <span class="meta-former">[BS ’22, next MS in CS at Yale University]</span></li>
+      <li>Florence Wu <span class="meta-former">[BS ’22, next MS in CS at Harvard University]</span></li>
+      <li>Yingzhuo Yu <span class="meta-former">[BS ’22, next MS in CS at UIUC]</span></li>
+      <li>Xingjian Zhang <span class="meta-former">[BS ’22, next Ph.D. in Information at UMSI]</span></li>
+      <li>Bohan Zhang <span class="meta-former">[MS ’22, next Ph.D. in Information at UMSI]</span></li>
+      <li>Zhengyang Shan <span class="meta-former">[MS ’22, next Ph.D. in CDS at Boston University]</span></li>
+      <li>Jiapeng Guo <span class="meta-former">[BS ’21, next MS in CS at Columbia University]</span></li>
+      <li>Zilu Wang <span class="meta-former">[BS ’21, next MS in MS&amp;E at Stanford University]</span></li>
+    </ol>
+
+    <p class="note">
+      I supervise students interested in <span class="label">Human-centric AI and Information Systems</span>. For Fall ’26, I’m specifically recruiting Ph.D. students with strong AI/HCI skills—e.g., building polished front-ends (React/TypeScript), rapid prototyping and performing online user studies, fine-tuning and evaluating LLMs, and solid data/ML engineering/programming skills. The nature of the research project will be similar in spirit to <a href="https://arxiv.org/abs/2510.13939">this paper</a>.
+    </p>
+
+    <p class="note">
+      <em>Masters/Undergrads (already at University of Michigan)</em> may email their CV and transcripts. <em>Prospective Ph.D. students</em> are encouraged to apply to our Ph.D. program
+      <a href="https://www.si.umich.edu/programs/phd-information/how-do-i-apply">here</a> and mention my name as a potential advisor. The deadline is December 1 each year.
+    </p>
+  </section>
+
+  <a name="awards" id="awards"></a>
+  <hr>
+  <strong><span class="c-magenta"><u>Awards</u></span></strong>
+
+  <p>
+    <ol>
+      <li>INFORMS Annual Conference <span class="c-cyan"> (e-Business Society; Best Paper Award),</span> <span class="c-crimson">2025.</span></li>
+      <li>John D. C. Little Best Paper Award <span class="c-cyan"> (Finalist),</span> <span class="c-crimson">2025.</span></li>
+      <li>INFORMS Information Systems Society (ISS) <span class="c-cyan"> Gordon B. Davis Young Scholar Award,</span> <span class="c-crimson">2021.</span></li>
+      <li>INFORMS Annual Conference <span class="c-cyan"> (e-Business Society; Best Paper Award),</span> <span class="c-crimson">2020.</span></li>
+      <li>Workshop on Information Systems and Economics (WISE) <span class="c-cyan"> (Runner-up Best Paper Award),</span> <span class="c-crimson">2016.</span></li>
+      <li>Rubinoff Best Doctoral Dissertation Award <span class="c-cyan">(awarded by <a href="https://www.cis.upenn.edu">Penn CIS</a>),</span> <span class="c-crimson">2015.</span></li>
+    </ol>
+  </p>
+
+  <a name="service" id="service"></a>
+  <hr>
+  <strong><span class="c-magenta"><u>Service to the Profession</u></span></strong>
+
+  <p>
+    <ol>
+      <li><a class="link-white" href="https://pubsonline.informs.org/page/mnsc/editorial-board">Associate Editor</a> <span class="c-crimson">Management Science [2026-].</span></li>
+      <li><a class="link-white" href="https://jmlr.org/editorial-board.html">Editorial Board</a> <span class="c-crimson">JMLR [2020-].</span></li>
+      <li>Ad-hoc Reviewer: <span class="c-crimson">Nature</span>, <span class="c-crimson">Nature Human Behaviour</span>, <span class="c-crimson">Nature Communications</span>, <span class="c-crimson">PNAS</span>, <span class="c-crimson">JAIR</span>, <span class="c-crimson">Information Science Research (ISR)</span>, <span class="c-crimson">Management Science</span>, <span class="c-crimson">Marketing Science</span>, <span class="c-crimson">IEEE TKDE</span>, <span class="c-crimson">IEEE TPAMI.</span></li>
+      <li>Reviewer/PC/SPC Member @ Core AI/ML Conferences: <span class="c-cyan">[every year since 2013]</span> <span class="c-crimson">NeurIPS</span>, <span class="c-crimson">ICML</span>, <span class="c-crimson">AISTATS</span>, <span class="c-crimson">ICLR</span>, <span class="c-crimson">AAAI</span>, <span class="c-crimson">IJCAI.</span></li>
+      <li>Reviewer/PC/SPC Member @ Core Information Systems Conferences: <span class="c-cyan">[every year since 2017]</span> <span class="c-crimson">ICIS</span>, <span class="c-crimson">CIST,</span> <span class="c-crimson">WISE.</span></li>
+      <li>Reviewer/PC/SPC Member @ Core NLP/Computational Social Science Conferences: <span class="c-cyan">[sporadically]</span> <span class="c-crimson">The Web Conference (WWW)</span>, <span class="c-crimson">EMNLP</span>, <span class="c-crimson">NAACL</span>, <span class="c-crimson">ICWSM</span>, <span class="c-crimson">IC2S2.</span></li>
+    </ol>
+  </p>
+
+  <a name="selectpubs" id="selectpubs"></a>
+  <hr>
+
+  <strong><span class="c-magenta"><u> Selected Publications</u></span></strong>
+
+  <p>
+    <span class="c-red"> Below is a list of selected publications that highlight my core research interests and contributions.</span>
+    A complete list of all my publications is available <a href="https://goo.gl/FEsnE8">here</a>.
+  </p>
+
+  <p><sup>*</sup>indicates alphabetical author listing.</p>
 
   <ul>
-
-<p>
-<li>
-<em>
-  <font color=orange>
-      Recommendation and Temptation.
-     </font></em><br>
-    Sanzeed Anwar, <font color=cyan>Paramveer Dhillon</font>, and Grant Schoenebeck.</font><br>
-      <FONT COLOR="#C70039">RecSys</FONT> <font color="yellow">(ACM Conference on Recommender Systems)</font>, 2025.
-      <BR>
-      <a href="https://arxiv.org/abs/2412.10595">[PDF]</a>
-</li>
-<p>  
-    
-<p>
-<li>
-<em>
-  <font color=orange>
-      How Digital Paywalls Shape News Coverage.
-     </font></em><br>
-    <font color=cyan>Paramveer Dhillon</font>, Anmol Panda, and Libby Hemphill.</font><br>
-      <FONT COLOR="#C70039">PNAS Nexus</FONT>, 2025.
-      <BR>
-      <a href="https://academic.oup.com/pnasnexus/article/4/1/pgae511/7960035">[PDF]</a>
-</li>
-<p>   
-   <p>
-<li>
-<em>
-  <font color=orange>
-      Causal Inference for Human-Language Model Collaboration.
-     </font></em><br>
-    Bohan Zhang, Yixin Wang, and <font color=cyan>Paramveer Dhillon.</font><br>
-      <FONT COLOR="#C70039">NAACL(Main Conference)</FONT> <font color="yellow">(Annual Conference of the North American Chapter of ACL)</font>, 2024.
-      <BR>
-      <a href="https://arxiv.org/abs/2404.00207">[PDF]</a>
-</li>
-<p> 
-
-   <p>
-<li>
-<em>
-  <font color=orange>
-      Shaping Human-AI Collaboration: Varied Scaffolding Levels in Co-writing with Language Models.
-     </font></em><br>
-    <font color=cyan>Paramveer Dhillon</font>, Somayeh Molaei, Jiaqi Li, Maximilian Golub, Shaochun Zheng, and Lionel Robert.<br>
-      <FONT COLOR="#C70039">CHI</FONT> <font color="yellow">(SIGCHI Conference on Human Factors in Computing Systems)</font>, 2024.
-      <BR>
-      <a href="https://arxiv.org/abs/2402.11723">[PDF]</a>
-</li>
-<p>
-
-  
-        <p>
-<li>
-<em>
-  <font color=orange>
-      Filter Bubble or Homogenization? Disentangling the Long-Term Effects of Recommendations on User Consumption Patterns.
-     </font></em><br>
-    Sanzeed Anwar, Grant Schoenebeck, and <font color=cyan>Paramveer Dhillon.</font><br>
-      <FONT COLOR="#C70039">WWW</FONT> <font color="yellow">(The Web Conference)</font>, 2024.
-      <BR>
-      <a href="https://arxiv.org/abs/2402.15013">[PDF]</a>
-</li>
-<p>
-  
- 
-
-  
-      
+    <li>
       <p>
-      <li>
-        <em>
-            <font color=orange>
-                Targeting for long-term outcomes.
-               </font></em><br>
-              Jeremy Yang, Dean Eckles, <font color=cyan>Paramveer Dhillon</font>, and Sinan Aral.<br>
-                <FONT COLOR="#C70039">Management Science</FONT>, 2023.
-                <BR>
-                <a href="papers/targeting-long-term.pdf">[PDF]</a>
-        </li>
-        <p>
-      
-      
-        <p>
-        <li>
-        <em>
-            <font color=orange>
-                 What (Exactly) is Novelty in Networks? Unpacking the Vision Advantages of Brokers, Bridges, and Weak Ties.
-               </font></em><br>
-              Sinan Aral, <font color=cyan>Paramveer Dhillon</font>.<br>
-              <FONT COLOR="#C70039">Management Science</FONT>, 2022.
-                <BR>
-                <a href="papers/aral-dhillon-novelty.pdf">[PDF]</a>
-        </li>
-          <p>
-          <li>
-          <em>
-              <font color=orange>
-                  Modeling Dynamic User Interests: A Neural Matrix Factorization Approach.
-                  </font></em><br>
-                <font color=cyan>Paramveer Dhillon</font>, Sinan Aral.<br>
-                  <FONT COLOR="#C70039">Marketing Science</FONT>, 2021.
-                  <BR>
-                  <a href="papers/dhillon-aral-dynamic-interests-mksc.pdf">[PDF]</a>
-          </li>
-          <p>
-    <p>
-    <li>
-          <em>
-              <font color=orange>
-                  Digital Paywall Design: Implications for Content Demand &amp; Subscriptions.<sup>*</sup>
-                  </font></em><br>
-                  Sinan Aral, <font color=cyan>Paramveer Dhillon.</font><br>
-                  <FONT COLOR="#C70039">Management Science</FONT>, 2020.
-                  <BR>
-                  <a href="papers/dhillon20Paywall.pdf">[PDF]</a>
-          </li>
-        <p>
-    
-        <p>
-        <li>
-        <em>
-            <font color=orange>
-                Social Influence Maximization under Empirical Influence Models.<sup>*</sup>
-                </font></em><br>
-                Sinan Aral, <font color=cyan>Paramveer Dhillon.</font><br>
-                <FONT COLOR="#C70039">Nature Human Behaviour</FONT>, 2018.
-                <BR>
-                <a href="https://www.nature.com/articles/s41562-018-0346-z.epdf?author_access_token=N3H-02ldeE4Au_GNS-_Sl9RgN0jAjWel9jnR3ZoTv0PVP3dTdNThCuDLo3WU2Y7zDTMMUjiXDkdH1FtGlpFLC9mswZaf5ycdN2RqIvrlWelLux3HrjtdxwCVD7Cjkt_1NCfXSrl3l-i5NieYjFWGqg%3D%3D">[PDF]</a>
-            <a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41562-018-0346-z/MediaObjects/41562_2018_346_MOESM1_ESM.pdf">[Supplementary Information]</a>
-        </li>
-        <p>
-        <li>
-            <em>
-                <font color=orange>
-                    Eigenwords: Spectral Word Embeddings.
-                </font></em><br>
-            <font color=cyan>Paramveer Dhillon</font>, Dean Foster, and Lyle Ungar.<br>
-            <FONT COLOR="#C70039">JMLR</FONT> <font color="yellow">(Journal of Machine Learning Research)</font>, 2015.
-            <BR>
-            <a href="papers/dhillon15a.pdf">[PDF]</a>
-        </li>
-        <p>
-        <li>
-            <em>
-                <font color=orange>
-                    New Subsampling Algorithms for Fast Least Squares Regression.
-                </font></em><br>
-            <font color=cyan>Paramveer Dhillon</FONT>, Yichao Lu, Dean Foster, and Lyle Ungar.<br>
-            <FONT COLOR="#C70039">NeurIPS</FONT> <font color="yellow">(Advances in Neural Information Processing Systems Conference)</font>, 2013.
-            <BR>
-            <a href="papers/uluruNIPS2013.pdf">[PDF]</a>
-            <a href="papers/uluru_appendix.pdf">[Supplementary Information]</a>
-        </li>
-        <p>
-        <li>
-            <em>
-                <font color=orange>
-                    Faster Ridge Regression via the Subsampled Randomized Hadamard Transform.
-                </font></em><br>
-            Yichao Lu, <font color=cyan>Paramveer Dhillon</FONT>, Dean Foster, and Lyle Ungar.<br>
-            <FONT COLOR="#C70039">NeurIPS</FONT> <font color="yellow">(Advances in Neural Information Processing Systems Conference)</font>, 2013.
-            <BR>
-            <a href="papers/ridgeNIPS2013.pdf">[PDF]</a>
-            <a href="papers/ridge2013appendix.pdf">[Supplementary Information]</a>
-        </li>
-        <p>
-        <li>
-            <em>
-                <font color=orange>
-                    A Risk Comparison of Ordinary Least Squares vs Ridge Regression.
-                </font></em><br>
-            <font color=cyan>Paramveer Dhillon</FONT>, Dean Foster, Sham Kakade, and Lyle Ungar.<br>
-            <FONT COLOR="#C70039">JMLR</FONT> <font color="yellow">(Journal of Machine Learning Research)</font>, 2013.
-            <BR>
-            <a href="papers/dhillon13a.pdf">[PDF]</a>
-        </li>
-        <p>
-        <li>
-            <em>
-                <font color=orange>
-                    Two Step CCA: A new spectral method for estimating vector models of words.
-                </font></em><br>
-            <font color=cyan>Paramveer Dhillon</FONT>, Jordan Rodu, Dean Foster, and Lyle Ungar.<br>
-            <FONT COLOR="#C70039">ICML</FONT><font color="yellow">(International Conference on Machine Learning)</font>, 2012.
-            <BR>
-            <a href="papers/dhillon_icml12_cca.pdf">[PDF]</a> <a href="papers/supplemental_icml12.pdf">[Supplementary Information]</a>
-        </li>
-        <p>
-        <p>
-        <li>
-            <em>
-                <font color=orange>
-                    Multi-View Learning of Word Embeddings via CCA.
-                </font></em><br>
-            <font color=cyan>Paramveer Dhillon</FONT>, Dean Foster, and Lyle Ungar.<br>
-            <FONT COLOR="#C70039">NeurIPS</FONT><font color="yellow">(Advances in Neural Information Processing Systems Conference)</font>,  2011.
-            <BR>
-            <a href="papers/nips11dhillon.pdf">[PDF]</a> <a href="papers/nips11dhillon_supp.pdf">[Supplementary Information]</a>
-        </li>
-        <p>
-        <li>
-            <em>
-                <font color=orange>
-                    Minimum Description Length Penalization for Group and Multi-Task Sparse Learning.
-                </font></em><br>
-            <font color=cyan>Paramveer Dhillon</FONT>, Dean Foster, and Lyle Ungar.<br>
-            <FONT COLOR="#C70039">JMLR</FONT> <font color="yellow">(Journal of Machine Learning Research)</font>, February 2011.
-            <BR>
-            <a href="papers/dhillon11a.pdf">[PDF]</a>
-        </li>
-        <p>
- 
-       </ul>
-       
-<!--
-<a name="publications"></a>
-<hr>
-<p>
-<STRONG> <font color=#FF00FF><u> Publications (Full List)</u> </font> </STRONG>
-
-
-
-<p>
-Acronyms for conferences and journals wherever applicable:<br><br>
-<FONT COLOR="orange"><u>[General Science venues]</u></font> <FONT COLOR="#C70039">PNAS:</font> Proceedings of the National Academy of Sciences.<br><br>
-<FONT COLOR="orange"><u>[Statistical Machine Learning/AI/Data Mining venues]</u></font> <FONT COLOR="#C70039">JMLR:</font> Journal of Machine Learning Research; <FONT COLOR="#C70039">NeurIPS:</font> Advances in Neural Information Processing Systems Conference; <FONT COLOR="#C70039">ICML:</font> International Conference on Machine Learning; <FONT COLOR="#C70039">AISTATS:</font> International Conference on Artificial Intelligence and Statistics; <FONT COLOR="#C70039">ECML:</font> European Conference on Machine Learning; <FONT COLOR="#C70039">PAKDD:</font> Pacific-Asia Conference on Knowledge Discovery and Data Mining, <FONT COLOR="#C70039">ICDM:</font> International Conference on Data Mining.<br><br>
-<FONT COLOR="orange"><u>[NLP/CL/HCI venues]</u></font> <FONT COLOR="#C70039">NAACL:</font> Annual Conference of the North American Association for Computational Linguistics; <FONT COLOR="#C70039">EMNLP:</font> International Conference on Empirical Methods in Natural Language Processing; <FONT COLOR="#C70039">ACL:</font> Annual Conference of the Association for Computational Linguistics; <FONT COLOR="#C70039">COLING:</font> International Conference on Computational Linguistics; <FONT COLOR="#C70039">CHI:</font> SIGCHI Conference on Human Factors in Computing Systems; <FONT COLOR="#C70039">CSCW:</font> ACM Conference on Computer-Supported Cooperative Work and Social Computing.<br><br>
-<FONT COLOR="orange"><u>[Social Media/Web/Computational Social Science/Information Management venues]</u></font> <FONT COLOR="#C70039">WWW:</font> The Web Conference; <FONT COLOR="#C70039">ICWSM:</font> International Conference on Web and Social Media; <FONT COLOR="#C70039">CIKM:</font> International Conference on Information and Knowledge Management; <FONT COLOR="#C70039">SocInfo:</font> International Conference on Social Informatics. <br><br>
-<FONT COLOR="orange"><u>[(Medicine or Neuro Imaging venues]</u></font> <FONT COLOR="#C70039">JMIR:</font> Journal of Medical Internet Research; <FONT COLOR="#C70039">ISBI:</font> IEEE International Symposium on Biomedical Imaging; <FONT COLOR="#C70039">MICCAI:</font> International Conference on Medical Image Computing and Computer Assisted Intervention.
-<p>
-
-
-<p>
-<sup>*</sup>indicates alphabetical author listing.
-<p>
-
-
-<ol reversed>
-
-
-<p>
-<li>
-<em>
-  <font color=orange>
-      Dual Debiasing for Noisy In-Context Learning for Text Generation.
-     </font></em><IMG SRC=photos/new2.gif WIDTH=60  HSPACE=1 ALT=new><br>
-    Siqi Liang, Sumyeong Ahn, <font color=cyan>Paramveer Dhillon</font>, Jiayu Zhou.<br>
-      <FONT COLOR="#C70039">ACL (Findings)</FONT>, 2025.
-      <BR>
-      <a href="http://arxiv.org/abs/2506.00418">[PDF]</a>
-</li>
-<p> 
-<p>
-<li>
-<em>
-  <font color=orange>
-      How Digital Paywalls Shape News Coverage.
-     </font></em><IMG SRC=photos/new2.gif WIDTH=60  HSPACE=1 ALT=new><br>
-    <font color=cyan>Paramveer Dhillon</font>, Anmol Panda, and Libby Hemphill.<br>
-      <FONT COLOR="#C70039">PNAS Nexus</FONT>, 2025.
-      <BR>
-      <a href="https://academic.oup.com/pnasnexus/article/4/1/pgae511/7960035">[PDF]</a>
-</li>
-<p> 
-<p>
-<li>
-<em>
-  <font color=orange>
-      Demographic Disparity in Wikipedia Coverage: A Global Perspective.
-     </font></em><IMG SRC=photos/new2.gif WIDTH=60  HSPACE=1 ALT=new><br>
-    Yulin Yu, Xianglong Li, Tianyi Li, <font color=cyan>Paramveer Dhillon</font>, and Daniel Romero.<br>
-      <FONT COLOR="#C70039">EPJ Data Science</FONT>, 2025.
-      <BR>
-      <a href="https://link.springer.com/article/10.1140/epjds/s13688-025-00530-4">[PDF]</a>
-</li>
-<p> 
-<p>
-<li>
-<em>
-  <font color=orange>
-      Leveraging Group-Level Signals for Robust Many-Domain Generalization.
-     </font></em><IMG SRC=photos/new2.gif WIDTH=60  HSPACE=1 ALT=new><br>
-     Yachuan Liu, Bohan Zhang, Qiaozhu Mei, and <font color=cyan>Paramveer Dhillon</font>.<br>
-      <FONT COLOR="#C70039">PAKDD</FONT>, 2025.
-      <BR>
-      <a href="">[PDF]</a>
-</li>
-<p> 
-  
-
-  
-    <p>
-<li>
-<em>
-  <font color=orange>
-      Shaping Human-AI Collaboration: Varied Scaffolding Levels in Co-writing with Language Models.
-     </font></em><IMG SRC=photos/new2.gif WIDTH=60  HSPACE=1 ALT=new><br>
-    <font color=cyan>Paramveer Dhillon</font>, Somayeh Molaei, Jiaqi Li, Maximilian Golub, Shaochun Zheng, and Lionel Robert.<br>
-      <FONT COLOR="#C70039">CHI</FONT>, 2024.
-      <BR>
-      <a href="https://arxiv.org/abs/2402.11723">[PDF]</a>
-</li>
-<p>
-    <p>
-<li>
-<em>
-  <font color=orange>
-      Causal Inference for Human-Language Model Collaboration.
-     </font></em><IMG SRC=photos/new2.gif WIDTH=60  HSPACE=1 ALT=new><br>
-    Bohan Zhang, Yixin Wang, and <font color=cyan>Paramveer Dhillon.</font><br>
-      <FONT COLOR="#C70039">NAACL(Main Conference)</FONT>, 2024.
-      <BR>
-      <a href="https://arxiv.org/abs/2404.00207">[PDF]</a>
-</li>
-<p> 
-
-
-  <p>
-<li>
-<em>
-  <font color=orange>
-      Wellness Influencer Responses to COVID-19 Vaccines on Social Media: A Longitudinal Observational Study.
-     </font></em><IMG SRC=photos/new2.gif WIDTH=60  HSPACE=1 ALT=new><br>
-    Elle O'Brien, Ronith Ganjigunta, and <font color=cyan>Paramveer Dhillon.</font><br>
-      <FONT COLOR="#C70039">JMIR</FONT>, 2024.
-      <BR>
-      <a href="https://www.jmir.org/2024/1/e56651">[PDF]</a>
-</li>
-<p>
-
-  
-    <p>
-<li>
-<em>
-  <font color=orange>
-      Characterizing the Structure of Online Conversations Across Reddit.
-     </font></em><IMG SRC=photos/new2.gif WIDTH=60  HSPACE=1 ALT=new><br>
-    Yulin Yu, Julie Jiang, and <font color=cyan>Paramveer Dhillon.</font><br>
-      <FONT COLOR="#C70039">CSCW</FONT>, 2024.
-      <BR>
-      <a href="https://arxiv.org/abs/2209.14836">[PDF]</a>
-</li>
-<p>
-
-    
-    <p>
-<li>
-<em>
-  <font color=orange>
-      Filter Bubble or Homogenization? Disentangling the Long-Term Effects of Recommendations on User Consumption Patterns.
-     </font></em><IMG SRC=photos/new2.gif WIDTH=60  HSPACE=1 ALT=new><br>
-    Sanzeed Anwar, Grant Schoenebeck, and <font color=cyan>Paramveer Dhillon.</font><br>
-      <FONT COLOR="#C70039">WWW</FONT>, 2024.
-      <BR>
-      <a href="https://arxiv.org/abs/2402.15013">[PDF]</a>
-</li>
-<p>
-
-     <p>
-<li>
-<em>
-  <font color=orange>
-      Targeting for long-term outcomes.
-     </font></em><IMG SRC=photos/new2.gif WIDTH=60  HSPACE=1 ALT=new><br>
-    Jeremy Yang, Dean Eckles, <font color=cyan>Paramveer Dhillon</font>, and Sinan Aral.<br>
-      <FONT COLOR="#C70039">Management Science</FONT>, 2024.
-      <BR>
-      <a href="papers/targeting-long-term.pdf">[PDF]</a>
-</li>
-<p>
-
- <p>
-<li>
-<em>
-  <font color=orange>
-      PM2.5 forecasting under distribution shift: A graph learning approach
-     </font></em><br>
-    Yachuan Liu, Jiaqi Ma, <font color=cyan>Paramveer Dhillon</font>, and Qiaozhu Mei.<br>
-      <FONT COLOR="#C70039">AI Open</FONT>, 2023.
-      <BR>
-      <a href="https://www.sciencedirect.com/science/article/pii/S2666651023000220">[PDF]</a>
-</li>
-<p>
-
-    <p>
-    <li>
-    <em>
-        <font color=orange>
-            Unique in what sense? Heterogeneous relationships between multiple types of uniqueness and popularity in music.
-            </font></em><br>
-          Yulin Yu, Pui Yin Cheung, Yong-Yeol Ahn, and <font color=cyan>Paramveer Dhillon</font>.<br>
-          <FONT COLOR="#C70039">ICWSM</FONT>, 2023.
-            <BR>
-            <a href="papers/icwsm23.pdf">[PDF]</a>
+        <em><span class="c-orange">Recommendation and Temptation.</span></em><br>
+        Sanzeed Anwar, <span class="c-cyan">Paramveer Dhillon</span>, and Grant Schoenebeck.<br>
+        <span class="c-crimson">RecSys</span> <span class="c-yellow">(ACM Conference on Recommender Systems)</span>, 2025.<br>
+        <a href="https://arxiv.org/abs/2412.10595">[PDF]</a>
+      </p>
     </li>
-    <p>
-    <p>
-<li>
-<em>
-   <font color=orange>
-       Unpacking Gender Stereotypes in Film Dialogue.
-       </font></em><br>
-     Yulin Yu, Yucong Hao, and <font color=cyan>Paramveer Dhillon</font>.<br>
-     <FONT COLOR="#C70039">SocInfo</FONT>, 2022.
-       <BR>
-       <a href="papers/socinfo22.pdf">[PDF]</a>
-</li>
-<p>
-        
-     <p>
+
     <li>
-    <em>
-        <font color=orange>
-            Judging a Book by Its Cover: Predicting the Marginal Impact of Title on Reddit Post Popularity.
-            </font></em><br>
-          Evan Weissburg, Arya Kumar, and <font color=cyan>Paramveer Dhillon</font>.<br>
-          <FONT COLOR="#C70039">ICWSM</FONT>, 2022.
-            <BR>
-            <a href="papers/icwsm-22.pdf">[PDF]</a>
-    </li>
-    <p>
-
-            <p>
-  <li>
-  <em>
-      <font color=orange>
-           What (Exactly) is Novelty in Networks? Unpacking the Vision Advantages of Brokers, Bridges, and Weak Ties.
-         </font></em><br>
-        Sinan Aral, <font color=cyan>Paramveer Dhillon</font>.<br>
-        <FONT COLOR="#C70039">Management Science</FONT>, 2022.
-          <BR>
-          <a href="papers/aral-dhillon-novelty.pdf">[PDF]</a>
-  </li>
-  <p>
-
-    
       <p>
-<li>
-  <em>
-      <font color=orange>
-          Detecting Struggling Students From Interactive Ebook Data: A Case Study Using CSAwesome.
-         </font></em><br>
-        Barbara Ericson, Hisamitsu Maeda, and <font color=cyan>Paramveer Dhillon</font>.<br>
-          <FONT COLOR="#C70039">SIGCSE Symposium</FONT>, 2022.
-          <BR>
-           <a href="papers/sigcse22.pdf">[PDF]</a>
-  </li>
-  <p>
-      
-      
-    <p>
-    <li>
-    <em>
-        <font color=orange>
-            Social Status and Novelty Drove the Spread of Online Information During the Early Stages of COVID-19.
-            </font></em>
-          Antonis Photiou, Christos Nicolaides, and <font color=cyan>Paramveer Dhillon</font>.<br>
-          <FONT COLOR="#C70039">Nature Scientific Reports</FONT>, 2021.
-            <BR>
-            <a href="https://rdcu.be/czhMu">[PDF]</a>
-            <a href="https://www.readcube.com/articles/supplement?doi=10.1038%2Fs41598-021-99060-y&index=0">[Supplementary Information]</a>
+        <em><span class="c-orange">How Digital Paywalls Shape News Coverage.</span></em><br>
+        <span class="c-cyan">Paramveer Dhillon</span>, Anmol Panda, and Libby Hemphill.<br>
+        <span class="c-crimson">PNAS Nexus</span>, 2025.<br>
+        <a href="https://academic.oup.com/pnasnexus/article/4/1/pgae511/7960035">[PDF]</a>
+      </p>
     </li>
-    <p>
-    
-  
-    <p>
+
     <li>
-    <em>
-        <font color=orange>
-            Modeling Dynamic User Interests: A Neural Matrix Factorization Approach.
-            </font></em><br>
-          <font color=cyan>Paramveer Dhillon</font>, Sinan Aral.<br>
-            <FONT COLOR="#C70039">Marketing Science</FONT>, 2021.
-            <BR>
-            <a href="papers/dhillon-aral-dynamic-interests-mksc.pdf">[PDF]</a>
+      <p>
+        <em><span class="c-orange">Causal Inference for Human-Language Model Collaboration.</span></em><br>
+        Bohan Zhang, Yixin Wang, and <span class="c-cyan">Paramveer Dhillon.</span><br>
+        <span class="c-crimson">NAACL(Main Conference)</span> <span class="c-yellow">(Annual Conference of the North American Chapter of ACL)</span>, 2024.<br>
+        <a href="https://arxiv.org/abs/2404.00207">[PDF]</a>
+      </p>
     </li>
-    <p>
-              
 
-  <li>
-  <em>
-      <font color=orange>
-          Interdependence and the Cost of Uncoordinated Responses to COVID-19.
-          </font></em><br>
-          David Holtz, Michael Zhao, Seth Benzell, Cathy Cao, Amin Rahimian, Jeremy Yang, Jennifer Allen, Avinash Collis, Alex Moehring, Tara Sowrirajan, Dipayan Ghosh, Yunhao Zhang, <font color=cyan>Paramveer Dhillon</font>, Christos Nicolaides, Dean Eckles, and Sinan Aral.<br>
-          <FONT COLOR="#C70039"> PNAS</FONT>, 2020.
-          <BR>
-          <a href="papers/pnas_spillovers_full.pdf">[PDF]</a>
-          <a href="papers/pnas_spillovers_SI.pdf">[Supplementary Information]</a>
-  </li>
-  <u><i>Press Coverage:</i></u>
+    <li>
+      <p>
+        <em><span class="c-orange">Shaping Human-AI Collaboration: Varied Scaffolding Levels in Co-writing with Language Models.</span></em><br>
+        <span class="c-cyan">Paramveer Dhillon</span>, Somayeh Molaei, Jiaqi Li, Maximilian Golub, Shaochun Zheng, and Lionel Robert.<br>
+        <span class="c-crimson">CHI</span> <span class="c-yellow">(SIGCHI Conference on Human Factors in Computing Systems)</span>, 2024.<br>
+        <a href="https://arxiv.org/abs/2402.11723">[PDF]</a>
+      </p>
+    </li>
 
-  <a href=https://news.umich.edu/research-shows-costly-failure-to-coordinate-covid-19-response/>[Michigan News]</a>
-  <a href=https://www.onedetroitpbs.org/8-27-20-one-detroit-nursing-homes-republican-national-convention-pandemic-coordinated-response-high-cost-of-high-water/>[OneDetroit PBS Interview (Starts at 14:40)]</a>
-  <a href=https://www.latimes.com/opinion/story/2020-08-09/coronavirus-spread-patterns-social-influence>[Los Angeles Times]</a>
-  <a href=https://www.washingtonpost.com/health/coronavirus-threat-rises-across-us-we-just-have-to-assume-the-monster-is-everywhere/2020/08/01/cdb505e0-d1d8-11ea-8c55-61e7fa5e82ab_story.html>[The Washington Post]</a>
-  <a href=https://www.msnbc.com/all-in/watch/mit-study-chaotic-and-uncoordinated-reopening-of-states-takes-devastating-toll-83765317932>[MSNBC]</a>
-  <a href=https://www.bostonglobe.com/2020/05/21/nation/lack-coordination-reopenings-could-lead-more-virus-spread-spillover-between-states/>[The Boston Globe]</a>
-  <a href=https://money.yahoo.com/mit-study-shows-devastating-cost-160519432.html?guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS91cmw_cT1odHRwcyUzQSUyRiUyRm1vbmV5LnlhaG9vLmNvbSUyRm1pdC1zdHVkeS1zaG93cy1kZXZhc3RhdGluZy1jb3N0LTE2MDUxOTQzMi5odG1sJnNhPUQmc250ej0xJnVzZz1BRlFqQ05Fd1RLRmRDelo4R25RSHAtM1BSYnhwN21veGFB&guce_referrer_sig=AQAAAMWb63FRbEBBxB1rPMiCaw_4q-BN4bhOLi28fUzfPQLKUbcknNwd8YfEjKP9B6F6PEqRO3BxtoqbbVDpXWRt4gbFeGMoV-rnXbu9OgEQZZM6ang3BXvC5tw0eMuvYappzm1ZPnnCkJgtkC5fe86HQIMyb9wvAd2vWsg6n4JIWSlN&guccounter=2>[Yahoo Finance]</a>
-  <a href=https://thehill.com/opinion/white-house/499727-the-deadly-cost-of-uncoordinated-reopening-of-our-states>[The Hill]</a>
-  <a href=https://www.techrepublic.com/article/study-there-will-be-a-devastating-cost-of-failure-if-economic-re-openings-are-not-coordinated/>[TechRepublic]</a>
-  <a href=https://www.wgbh.org/news/national-news/2020/05/21/new-mit-study-shows-the-cost-of-the-patchwork-response-to-coronavirus-in-the-u-s>[WGBH]</a>
+    <li>
+      <p>
+        <em><span class="c-orange">Filter Bubble or Homogenization? Disentangling the Long-Term Effects of Recommendations on User Consumption Patterns.</span></em><br>
+        Sanzeed Anwar, Grant Schoenebeck, and <span class="c-cyan">Paramveer Dhillon.</span><br>
+        <span class="c-crimson">WWW</span> <span class="c-yellow">(The Web Conference)</span>, 2024.<br>
+        <a href="https://arxiv.org/abs/2402.15013">[PDF]</a>
+      </p>
+    </li>
 
+    <li>
+      <p>
+        <em><span class="c-orange">Targeting for long-term outcomes.</span></em><br>
+        Jeremy Yang, Dean Eckles, <span class="c-cyan">Paramveer Dhillon</span>, and Sinan Aral.<br>
+        <span class="c-crimson">Management Science</span>, 2023.<br>
+        <a href="papers/targeting-long-term.pdf">[PDF]</a>
+      </p>
+    </li>
 
-  <p>
-  <li>
-  <em>
-      <font color=orange>
-          Digital Paywall Design: Implications for Content Demand &amp; Subscriptions.<sup>*</sup>
-          </font></em><br>
-          Sinan Aral, <font color=cyan>Paramveer Dhillon.</font><br>
-          <FONT COLOR="#C70039">Management Science</FONT>, 2020.
-          <BR>
-          <a href="papers/dhillon20Paywall.pdf">[PDF]</a>
-  </li>
-<u><i>Press Coverage:</i></u>
-<a href=https://news.umich.edu/online-news-needs-a-new-pay-model-u-m-study-shows/>[Michigan News]</a>
+    <li>
+      <p>
+        <em><span class="c-orange">What (Exactly) is Novelty in Networks? Unpacking the Vision Advantages of Brokers, Bridges, and Weak Ties.</span></em><br>
+        Sinan Aral, <span class="c-cyan">Paramveer Dhillon</span>.<br>
+        <span class="c-crimson">Management Science</span>, 2022.<br>
+        <a href="papers/aral-dhillon-novelty.pdf">[PDF]</a>
+      </p>
+    </li>
 
-<p>
-<li>
-<em>
-    <font color=orange>
-        Social Influence Maximization under Empirical Influence Models.<sup>*</sup>
-        </font></em><br>
-        Sinan Aral, <font color=cyan>Paramveer Dhillon.</font><br>
-        <FONT COLOR="#C70039">Nature Human Behaviour</FONT>, May 2018.
-        <BR>
+    <li>
+      <p>
+        <em><span class="c-orange">Modeling Dynamic User Interests: A Neural Matrix Factorization Approach.</span></em><br>
+        <span class="c-cyan">Paramveer Dhillon</span>, Sinan Aral.<br>
+        <span class="c-crimson">Marketing Science</span>, 2021.<br>
+        <a href="papers/dhillon-aral-dynamic-interests-mksc.pdf">[PDF]</a>
+      </p>
+    </li>
+
+    <li>
+      <p>
+        <em><span class="c-orange">Digital Paywall Design: Implications for Content Demand &amp; Subscriptions.<sup>*</sup></span></em><br>
+        Sinan Aral, <span class="c-cyan">Paramveer Dhillon.</span><br>
+        <span class="c-crimson">Management Science</span>, 2020.<br>
+        <a href="papers/dhillon20Paywall.pdf">[PDF]</a>
+      </p>
+    </li>
+
+    <li>
+      <p>
+        <em><span class="c-orange">Social Influence Maximization under Empirical Influence Models.<sup>*</sup></span></em><br>
+        Sinan Aral, <span class="c-cyan">Paramveer Dhillon.</span><br>
+        <span class="c-crimson">Nature Human Behaviour</span>, 2018.<br>
         <a href="https://www.nature.com/articles/s41562-018-0346-z.epdf?author_access_token=N3H-02ldeE4Au_GNS-_Sl9RgN0jAjWel9jnR3ZoTv0PVP3dTdNThCuDLo3WU2Y7zDTMMUjiXDkdH1FtGlpFLC9mswZaf5ycdN2RqIvrlWelLux3HrjtdxwCVD7Cjkt_1NCfXSrl3l-i5NieYjFWGqg%3D%3D">[PDF]</a>
-    <a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41562-018-0346-z/MediaObjects/41562_2018_346_MOESM1_ESM.pdf">[Supplementary Information]</a>
-</li>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Eigenwords: Spectral Word Embeddings.
-        </font></em><br>
-    <font color=cyan>Paramveer Dhillon</font>, Dean Foster, and Lyle Ungar.<br>
-    <FONT COLOR="#C70039">JMLR</FONT>, December 2015.
-    <BR>
-    <a href="papers/dhillon15a.pdf">[PDF]</a> <a href="#software">[Code + Pre-trained Embeddings]</a>
-</li>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Subject-Specific Functional Parcellation via Prior Based Eigenanatomy.
-        </font></em><br>
-    <font color=cyan>Paramveer Dhillon</font>, David Wolk, Sandhitsu Das, Lyle Ungar, James Gee, and Brian Avants.<br>
-    <FONT COLOR="#C70039">NeuroImage</FONT>, October 2014.
-    <BR>
-    <a href="papers/dhillon14NeuroImage.pdf">[PDF]</a> <a href="#software">[Code]</a>
-</li>
-<p>
+        <a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41562-018-0346-z/MediaObjects/41562_2018_346_MOESM1_ESM.pdf">[Supplementary Information]</a>
+      </p>
+    </li>
 
-<li>
-    <em>
-        <font color=orange>
-            New Subsampling Algorithms for Fast Least Squares Regression.
-        </font></em><br>
-    <font color=cyan>Paramveer Dhillon</FONT>, Yichao Lu, Dean Foster, and Lyle Ungar.<br>
-    <FONT COLOR="#C70039">NeurIPS</FONT> 2013.
-    <BR>
-    <a href="papers/uluruNIPS2013.pdf">[PDF]</a>
-    <a href="papers/uluru_appendix.pdf">[Supplementary Information]</a>
-</li>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Faster Ridge Regression via the Subsampled Randomized Hadamard Transform.
-        </font></em><br>
-    Yichao Lu, <font color=cyan>Paramveer Dhillon</FONT>, Dean Foster, and Lyle Ungar.<br>
-    <FONT COLOR="#C70039">NeurIPS</FONT> 2013.
-    <BR>
-    <a href="papers/ridgeNIPS2013.pdf">[PDF]</a>
-    <a href="papers/ridge2013appendix.pdf">[Supplementary Information]</a>
-</li>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            A Risk Comparison of Ordinary Least Squares vs Ridge Regression.
-        </font></em><br>
-    <font color=cyan>Paramveer Dhillon</FONT>, Dean Foster, Sham Kakade, and Lyle Ungar.<br>
-    <FONT COLOR="#C70039">JMLR</FONT>, May 2013.
-    <BR>
-    <a href="papers/dhillon13a.pdf">[PDF]</a>
-</li>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Two Step CCA: A new spectral method for estimating vector models of words.
-        </font></em><br>
-    <font color=cyan>Paramveer Dhillon</FONT>, Jordan Rodu, Dean Foster, and Lyle Ungar.<br>
-    <FONT COLOR="#C70039">ICML</FONT> 2012.
-    <BR>
-    <a href="papers/dhillon_icml12_cca.pdf">[PDF]</a> <a href="papers/supplemental_icml12.pdf">[Supplementary Information]</a> <a href="#software">[Code + Pre-trained Embeddings]</a> <font color=red>[Note: This paper was superseded by our JMLR 2015 paper.]</font>
-</li>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Spectral Dependency Parsing with Latent Variables.
-        </font></em><br>
-    <font color=cyan>Paramveer Dhillon</FONT>, Jordan Rodu, Michael Collins, Dean Foster, and Lyle Ungar.<br>
-    <FONT COLOR="#C70039">EMNLP</FONT> 2012.
-    <BR>
-    <a href="papers/spectral-dep-parsing.pdf">[PDF]</a>
-</li>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Partial Sparse Canonical Correlation Analysis (PSCCA) for population studies in Medical Imaging.
-        </font></em><br>
-    <font color=cyan>Paramveer Dhillon</FONT>, Brian Avants, Lyle Ungar, and James Gee.<br>
-    <FONT COLOR="#C70039">ISBI</FONT> 2012.
-    <BR>
-    <a href="papers/isbi_cca.pdf">[PDF]</a>
-</li>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Eigenanatomy improves detection power for longitudinal cortical change.
-        </font></em><br>
-    Brian Avants, <font color=cyan>Paramveer Dhillon</FONT>, Benjamin Kandel, Philip Cook, Corey McMillan, Murray Grossman, and James Gee.<br>
-    <FONT COLOR="#C70039">MICCAI</FONT> 2012.
-    <BR>
-    <a href="papers/miccai_eigenanatomy.pdf">[PDF]</a>
-</li>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Deterministic Annealing for Semi-Supervised Structured Output Learning.
-        </font></em><br>
-    <font color=cyan>Paramveer Dhillon</FONT>, Sathiya Keerthi, Olivier Chapelle, Kedar Bellare, and S. Sundararajan.<br>
-    <FONT COLOR="#C70039">AISTATS</FONT> 2012.
-    <BR>
-    <a href="papers/aistats_daso.pdf">[PDF]</a>
-</li>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Metric Learning for Graph-based Domain Adaptation.
-        </font></em><br>
-    <font color=cyan>Paramveer Dhillon</FONT>, Partha Talukdar, and Koby Crammer.<br>
-    <FONT COLOR="#C70039">COLING</FONT> 2012.
-    <BR>
-    <a href="papers/graph_da_coling_2012.pdf">[PDF]</a>
-</li>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Multi-View Learning of Word Embeddings via CCA.
-        </font></em><br>
-    <font color=cyan>Paramveer Dhillon</FONT>, Dean Foster, and Lyle Ungar.<br>
-    <FONT COLOR="#C70039">NeurIPS</FONT> 2011.
-    <BR>
-    <a href="papers/nips11dhillon.pdf">[PDF]</a> <a href="papers/nips11dhillon_supp.pdf">[Supplementary Information]</a> <a href="#software">[Code + Pre-trained Embeddings]</a> <font color=red>[Note: This paper was superseded by our JMLR 2015 paper.]</font>
-</li>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Minimum Description Length Penalization for Group and Multi-Task Sparse Learning.
-        </font></em><br>
-    <font color=cyan>Paramveer Dhillon</FONT>, Dean Foster, and Lyle Ungar.<br>
-    <FONT COLOR="#C70039">JMLR</FONT>, February 2011.
-    <BR>
-    <a href="papers/dhillon11a.pdf">[PDF]</a>
-</li>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Semi-supervised Multi-task Learning of Structured Prediction Models for Web Information Extraction.
-        </font></em><br>
-    <font color=cyan>Paramveer Dhillon</FONT>, S. Sundararajan, and S. Sathiya Keerthi.<br>
-    <FONT COLOR="#C70039">CIKM</FONT> 2011.
-    <BR>
-    <a href="papers/cikm116-dhillon.pdf">[PDF]</a>
-</li>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            A New Approach to Lexical Disambiguation of Arabic Text.
-        </font></em><br>
-    Rushin Shah, <FONT COLOR="cyan">Paramveer Dhillon</FONT>, Mark Liberman, Dean Foster, Mohamed Maamouri, and Lyle Ungar.<br>
-    <FONT COLOR="#C70039">EMNLP</FONT> 2010.
-    <BR>
-    <a href="papers/shah-dhillon_emnlp10.pdf">[PDF]</a>
-</li>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Learning Better Data Representation using Inference-Driven Metric Learning (IDML).
-        </font></em><br>
-   <FONT COLOR="cyan">Paramveer Dhillon</FONT>, Partha Pratim Talukdar, and Koby Crammer.<br>
-    <FONT COLOR="#C70039">ACL</FONT> 2010.
-    <BR>
-    <a href="papers/dhillon_acl10.pdf">[PDF]</a>
-</li>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Feature Selection using Multiple Streams.
-        </font></em><br>
-    <FONT COLOR="cyan">Paramveer Dhillon</FONT>, Dean Foster, and Lyle Ungar.<br>
-    <FONT COLOR="#C70039">AISTATS</FONT> 2010.
-    <BR>
-    <a href="papers/dhillon_aistats10.pdf">[PDF]</a>
-</li>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Transfer Learning, Feature Selection and Word Sense Disambiguation.
-        </font></em><br>
-    <FONT COLOR="cyan">Paramveer Dhillon</FONT>, Lyle Ungar.<br>
-    <FONT COLOR="#C70039">ACL</FONT> 2009.
-    <BR>
-    <a href="papers/dhillon_acl09.pdf">[PDF]</a>
-</li>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Multi-Task Feature Selection using the Multiple Inclusion Criterion (MIC).
-        </font></em><br>
-    <FONT COLOR="cyan">Paramveer Dhillon</FONT>, Brian Tomasik, Dean Foster, and Lyle Ungar.<br>
-    <FONT COLOR="#C70039">ECML</FONT> 2009.
-    <BR>
-    <a href="papers/dhillon_ecml09_mic.pdf">[PDF]</a>
-</li>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Efficient Feature Selection in the Presence of Multiple Feature Classes.
-        </font></em><br>
-    <FONT COLOR="cyan">Paramveer Dhillon</FONT>, Dean Foster, and Lyle Ungar.<br>
-    <FONT COLOR="#C70039">ICDM</FONT> 2008.
-    <BR>
-    <a href="papers/dhillon_icdm08.pdf">[PDF]</a>
-</li>
-<p>
+    <li>
+      <p>
+        <em><span class="c-orange">Eigenwords: Spectral Word Embeddings.</span></em><br>
+        <span class="c-cyan">Paramveer Dhillon</span>, Dean Foster, and Lyle Ungar.<br>
+        <span class="c-crimson">JMLR</span> <span class="c-yellow">(Journal of Machine Learning Research)</span>, 2015.<br>
+        <a href="papers/dhillon15a.pdf">[PDF]</a>
+      </p>
+    </li>
 
+    <li>
+      <p>
+        <em><span class="c-orange">New Subsampling Algorithms for Fast Least Squares Regression.</span></em><br>
+        <span class="c-cyan">Paramveer Dhillon</span>, Yichao Lu, Dean Foster, and Lyle Ungar.<br>
+        <span class="c-crimson">NeurIPS</span> <span class="c-yellow">(Advances in Neural Information Processing Systems Conference)</span>, 2013.<br>
+        <a href="papers/uluruNIPS2013.pdf">[PDF]</a>
+        <a href="papers/uluru_appendix.pdf">[Supplementary Information]</a>
+      </p>
+    </li>
 
+    <li>
+      <p>
+        <em><span class="c-orange">Faster Ridge Regression via the Subsampled Randomized Hadamard Transform.</span></em><br>
+        Yichao Lu, <span class="c-cyan">Paramveer Dhillon</span>, Dean Foster, and Lyle Ungar.<br>
+        <span class="c-crimson">NeurIPS</span> <span class="c-yellow">(Advances in Neural Information Processing Systems Conference)</span>, 2013.<br>
+        <a href="papers/ridgeNIPS2013.pdf">[PDF]</a>
+        <a href="papers/ridge2013appendix.pdf">[Supplementary Information]</a>
+      </p>
+    </li>
 
-&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="blue"><strong>Other Publications</strong><SMALL> (Non-core)</SMALL></FONT><br ><br>
+    <li>
+      <p>
+        <em><span class="c-orange">A Risk Comparison of Ordinary Least Squares vs Ridge Regression.</span></em><br>
+        <span class="c-cyan">Paramveer Dhillon</span>, Dean Foster, Sham Kakade, and Lyle Ungar.<br>
+        <span class="c-crimson">JMLR</span> <span class="c-yellow">(Journal of Machine Learning Research)</span>, 2013.<br>
+        <a href="papers/dhillon13a.pdf">[PDF]</a>
+      </p>
+    </li>
 
-<li>
-<em>
-    <font color=orange>
-        Is Deep Learning a Game Changer for Marketing Analytics? <font color="green">[Survey Paper for Practitioners]</font>
-        </font></em><br>
-      Glen Urban, Artem Timoshenko, <font color=cyan>Paramveer Dhillon</font>, and John Hauser.<br>
-        <FONT COLOR="#C70039">MIT Sloan Management Review</FONT>, 2020.
-        <BR>
-        <a href="papers/smr20.pdf">[PDF]</a>
-</li>
-  <li>
-  <em>
-      <font color=orange>
-          Mapping of pain circuitry in early post-natal development using manganese-enhanced MRI in rats.
-          </font></em><br>
-          Megan Sperry, Ben Kandel, Suzanne Wehrli, KN Bass, Sandhitsu Das, <font color=cyan>Paramveer Dhillon</font>, James Gee, and Gordon Barr.<br>
-          <FONT COLOR="#C70039">Neuroscience</FONT>, 2017.
-          <BR>
-          <a href="papers/neuroscience.pdf">[PDF]</a>
-  </li>
+    <li>
+      <p>
+        <em><span class="c-orange">Two Step CCA: A new spectral method for estimating vector models of words.</span></em><br>
+        <span class="c-cyan">Paramveer Dhillon</span>, Jordan Rodu, Dean Foster, and Lyle Ungar.<br>
+        <span class="c-crimson">ICML</span><span class="c-yellow">(International Conference on Machine Learning)</span>, 2012.<br>
+        <a href="papers/dhillon_icml12_cca.pdf">[PDF]</a> <a href="papers/supplemental_icml12.pdf">[Supplementary Information]</a>
+      </p>
+    </li>
 
+    <li>
+      <p>
+        <em><span class="c-orange">Multi-View Learning of Word Embeddings via CCA.</span></em><br>
+        <span class="c-cyan">Paramveer Dhillon</span>, Dean Foster, and Lyle Ungar.<br>
+        <span class="c-crimson">NeurIPS</span><span class="c-yellow">(Advances in Neural Information Processing Systems Conference)</span>, 2011.<br>
+        <a href="papers/nips11dhillon.pdf">[PDF]</a> <a href="papers/nips11dhillon_supp.pdf">[Supplementary Information]</a>
+      </p>
+    </li>
 
-&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="blue"><strong>Workshop Papers</strong><SMALL> (Venues for getting initial feedback on research. Often do not have proceedings.)</SMALL></FONT><br ><br >
+    <li>
+      <p>
+        <em><span class="c-orange">Minimum Description Length Penalization for Group and Multi-Task Sparse Learning.</span></em><br>
+        <span class="c-cyan">Paramveer Dhillon</span>, Dean Foster, and Lyle Ungar.<br>
+        <span class="c-crimson">JMLR</span> <span class="c-yellow">(Journal of Machine Learning Research)</span>, February 2011.<br>
+        <a href="papers/dhillon11a.pdf">[PDF]</a>
+      </p>
+    </li>
+  </ul>
 
-Acronyms for workshops include:<br><br>
+  <!-- Archived / commented-out "Publications (Full List)" block removed to reduce source bloat (it did not affect rendering). -->
 
-<FONT COLOR="#C70039">NBER-SI:</FONT> National Bureau of Economic Research - Summer Institute; <FONT COLOR="#C70039">CODE:</FONT> MIT Conference on Digital Experimentation; <FONT COLOR="#C70039">WISE:</FONT> Workshop on Information Systems and Economics; <FONT COLOR="#C70039">WIN:</FONT> Workshop on Information in Networks; <FONT COLOR="#C70039">NSF-ITN:</FONT> NSF Conference on Information Transmission in Networks at Harvard University; <FONT COLOR="#C70039">WCBA:</FONT> Utah Winter Conference on Business Analytics; <FONT COLOR="#C70039">SICS:</FONT> Summer Institute in Competitive Strategy;  <FONT COLOR="#C70039">QME:</FONT> Quantitative Marketing and Economics; <FONT COLOR="#C70039">CHITA:</FONT> Conference on
-Health IT and Analytics 2024;  <FONT COLOR="#C70039">PRNI:</FONT> International Workshop on Pattern Recognition in Neuroimaging; <FONT COLOR="#C70039">SSDBM:</FONT> Scientific and Statistical Database Management Conference; <FONT COLOR="#C70039">NESCAI:</FONT> North East Student Colloquium on Artificial Intelligence; <FONT COLOR="#C70039">ViSU/CVPR:</FONT> Visual Scene Understanding Workshop at CVPR; <FONT COLOR="#C70039">CISIS/LNCS:</FONT> Computational Intelligence in Security for Information Systems Conference/Lecture Notes in Computer Science; <FONT COLOR="#C70039">GLB:</FONT> Workshop on Graph Learning Benchmarks; <FONT COLOR="#C70039">CSEDM:</FONT> Educational Data Mining in CS; <FONT COLOR="#C70039">IC2S2:</FONT> International Conference on Computational Social Science; <FONT COLOR="#C70039">ICSSI:</FONT> International Conference on Science of Science and Innovation; <FONT COLOR="#C70039">SCECR:</FONT> International Conference on Statistical Challenges in E-commerce Research.
+  <a name="software" id="software"></a>
+  <hr>
 
-<p>
+  <strong><span class="c-magenta"><u>Software</u></span></strong>
 
-<p>
-<li>
-    <em>
-        <font color=orange>
-            A Proposed Framework to Identify Upstream Sources of Bias Among Racial Subgroups in Artificial Intelligence Models
-        </font></em><br>
-Rahul Ladhania, Allister Ho, Karandeep Singh, <FONT COLOR="cyan">Paramveer Dhillon</FONT>, Chad Brummett, and Anne Fernandez. <br>
-    <FONT COLOR="#C70039">CHITA</FONT> 2024.
-    <BR>
-    <font color="#39FF14">[No Archived Proceedings]</font>
-</li>
-<p>
-  
-  
   <p>
-<li>
-    <em>
-        <font color=orange>
-            Do Digital Paywalls Impact Topical Content Coverage?
-        </font></em><br>
-   <FONT COLOR="cyan">Paramveer Dhillon</FONT>, Anmol Panda, and Libby Hemphill.<br>
-    <FONT COLOR="#C70039">WISE</FONT> 2023.
-     <BR>
-    <FONT COLOR="#C70039">CODE</FONT> 2022.
-    <BR>
-    <font color="#39FF14">[No Archived Proceedings]</font>
-</li>
-<p>
-  
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Natural Disasters and Framing of Climate Change Events in Social Media: An Empirical Investigation on YouTube.
-        </font></em><br>
-    <FONT COLOR="cyan">Paramveer Dhillon</FONT>, Siqi Ma, Jiyu Chen, and Anjana Susarla.<br>
-    <FONT COLOR="#C70039">SCECR</FONT> 2023.
-    <BR>
-    <font color="#39FF14">[No Archived Proceedings]</font>
-</li>
-<p>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Demographic Disparities in Wikipedia Coverage: A Global Perspective.
-        </font></em><br>
-    Yulin Yu, Tianyi Li, Xianglong Li, <FONT COLOR="cyan">Paramveer Dhillon</FONT>, and Daniel Romero.<br>
-    <FONT COLOR="#C70039">IC2S2 </FONT> 2022.
-    <BR>
-    <font color="#39FF14">[No Archived Proceedings]</font>
-</li>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Unique in what sense? Heterogeneous relationships between multiple types of uniqueness and popularity in music.
-        </font></em><br>
-    Yulin Yu, Pui Yin Cheung, Yong-Yeol Ahn, and <FONT COLOR="cyan">Paramveer Dhillon</FONT>.<br>
-    <FONT COLOR="#C70039">ICSSI </FONT> 2023.
-    <BR>
-    <FONT COLOR="#C70039">IC2S2 </FONT> 2021. <font color="green">[Best poster award]</font>
-    <BR>
-    <font color="#39FF14">[No Archived Proceedings]</font>
-</li>
-<p>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Comparing Ebook Student Interactions With Test Scores: A Case Study Using CSAwesome.
-        </font></em><br>
-    Hisamitsu Maeda, Barbara Ericson, and <FONT COLOR="cyan">Paramveer Dhillon</FONT>.<br>
-    <FONT COLOR="#C70039">CSEDM </FONT> 2021.
-    <BR>
-    <font color="#39FF14">[No Archived Proceedings]</font>
-</li>
-<p>
+    <ol>
+      <li>Code and data for our <span class="c-cyan">Nature Human Behaviour 2018</span> paper is available <a href="https://www.dropbox.com/s/iimtqswiesl4skd/inf-max-data-code-release.zip?dl=0">here</a>.</li>
+      <li>The ANTsR toolkit for medical image analysis (including the implementation of our <span class="c-cyan">NeuroImage 2014</span> paper) is available <a href="http://stnava.github.io/ANTsR/">here</a>.</li>
+      <li>The SWELL (Spectral Word Embedding Learning for Language) JAVA toolkit for inducing word embeddings (cf. <span class="c-cyan">JMLR 2015, ICML 2012, NeurIPS 2011</span>) is available <a href="https://github.com/paramveerdhillon/swell">here</a>.</li>
 
-<li>
-    <em>
-        <font color=orange>
-            A New Benchmark of Graph Learning for PM2.5 Forecasting under Distribution Shift.
-        </font></em><br>
-    Yachuan Liu, Jiaqi Ma, <FONT COLOR="cyan">Paramveer Dhillon</FONT>, and Qiaozhu Mei.<br>
-    <FONT COLOR="#C70039">GLB Workshop @ The Web Conference </FONT> 2021.
-    <BR>
-    <font color="#39FF14">[No Archived Proceedings]</font>
-</li>
+      <li>
+        Various Eigenword (SWELL) embeddings for reproducing the results in our <span class="c-cyan">JMLR 2015</span> paper can be found below <span class="c-cyan">[No additional scaling required for embeddings. Use them as is]</span>. <span class="c-red">[Based on our results, OSCCA and TSCCA embeddings are the most robust and work best on a variety of tasks.]</span>
+        <ul style="list-style-type:circle;">
+          <li><a href="https://www.dropbox.com/s/ylail17k8yfjhrp/rcv1.oscca.100k.200.c2.gz">OSCCA (h=2)</a> <span class="c-cyan">[Trained on Reuters RCV1 (No lowercasing or cleaning). v=100k, k=200, context size (h)=2]</span></li>
+          <li><a href="https://www.dropbox.com/s/hb2sscve02k60uf/rcv1.tscca.100k.200.c2.gz">TSCCA (h=2)</a> <span class="c-orange">[Trained on Reuters RCV1 (No lowercasing or cleaning). v=100k, k=200, context size (h)=2]</span></li>
+          <li><a href="https://www.dropbox.com/s/xcrm1ze5u2yfshf/rcv1.lrmvl1.100k.200.c2.gz">LR-MVL(I) (h=2)</a> <span class="c-cyan">[Trained on Reuters RCV1 (No lowercasing or cleaning). v=100k, k=200, context size (h)=2]</span></li>
+          <li><a href="https://www.dropbox.com/s/q2xsxxbeay2k3cw/rcv1.lrmvl2.100k.200.gz">LR-MVL(II)</a> <span class="c-orange">[Trained on Reuters RCV1 (No lowercasing or cleaning). v=100k, k=200, smooths=0.5</span></li>
+          <li><a href="https://www.dropbox.com/s/625z74wwrp1vkdu/rcv1.oscca.100k.200.c10.gz">OSCCA (h=10)</a> <span class="c-cyan">[Trained on Reuters RCV1 (No lowercasing or cleaning). v=100k, k=200, context size (h)=10]</span></li>
+          <li><a href="https://www.dropbox.com/s/8lhdrrj9ijqxvjc/rcv1.tscca.100k.200.c10.gz">TSCCA (h=10)</a> <span class="c-orange">[Trained on Reuters RCV1 (No lowercasing or cleaning). v=100k, k=200, context size (h)=10]</span></li>
+          <li><a href="https://www.dropbox.com/s/7xhuk9cf7kk46t7/rcv1.lrmvl1.100k.200.c10.gz">LR-MVL(I) (h=10)</a> <span class="c-cyan">[Trained on Reuters RCV1 (No lowercasing or cleaning). v=100k, k=200, context size (h)=10]</span></li>
+        </ul>
+      </li>
 
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Targeting for long-term outcomes.
-        </font></em><br>
-    Jeremy Yang, Dean Eckles, <FONT COLOR="cyan">Paramveer Dhillon</FONT>, and Sinan Aral.<br>
-    <FONT COLOR="#C70039">SICS </FONT> 2022.
-    <BR>
-    <FONT COLOR="#C70039">WISE </FONT> 2020. <font color="green">[Nominated for Best student paper award]</font>
-    <BR>
-    <FONT COLOR="#C70039">INFORMS Annual Conference</FONT> 2020. <font color="green">[Best paper award]</font>
-    <BR>
-    <FONT COLOR="#C70039">QME Conference</FONT> 2020.
-    <BR>
-    <font color="#39FF14">[Abstract + Talk Only]</font>
-</li>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Optimizing Targeting Policies via Sequential Experimentation for User Retention.
-        </font></em><br>
-    Jeremy Yang, Dean Eckles, <FONT COLOR="cyan">Paramveer Dhillon</FONT>, and Sinan Aral.<br>
-    <FONT COLOR="#C70039">NeurIPS Workshop on "Do the right thing": Machine learning and causal inference for improved decision making</FONT> 2019.
-    <BR>
-    <FONT COLOR="#C70039">CODE</FONT> 2019.
-    <BR>
-    <font color="#39FF14">[Abstract + Talk Only]</font>
-</li>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Digital Paywall Design: Implications for Content Demand and Subscriptions.
-        </font></em><br>
-    Sinan Aral, <FONT COLOR="cyan">Paramveer Dhillon</FONT>.<br>
-    <FONT COLOR="#C70039">NBER-SI (Economics of Digitization)</FONT> 2017.
-    <BR>
-    <FONT COLOR="#C70039">CODE</FONT> 2016.
-    <BR>
-    <FONT COLOR="#C70039">WISE</FONT> 2016. <font color="green">[Runner-up best paper award]</font>
-    <BR>
-    <FONT COLOR="#C70039">WCBA</FONT> 2016.
-    <BR>
-    <font color="#39FF14">[Abstract + Talk Only]</font>
-</li>
-<p>
+      <li>
+        Generic eigenwords embeddings for various languages <span class="c-red">[Trained on much larger corpora.]</span>
+        <ul style="list-style-type:circle;">
+          <li><a href="https://www.dropbox.com/s/69ajc3gbabm551r/eigenwords.300k.200.en.zip">English</a> <span class="c-cyan">[Trained on English Gigaword (No lowercasing or cleaning). v=300k, k=200]</span></li>
+          <li><a href="https://www.dropbox.com/s/lesbwced7riwdbz/eigenwords.300k.200.de.zip">German</a> <span class="c-orange">[Trained on German Newswire (No lowercasing or cleaning). v=300k, k=200]</span></li>
+          <li><a href="https://www.dropbox.com/s/fsii7xdl4yvugpj/eigenwords.300k.200.fr.zip">French</a> <span class="c-cyan">[Trained on French Gigaword (No lowercasing or cleaning). v=300k, k=200]</span></li>
+          <li><a href="https://www.dropbox.com/s/f6csj2br51bg0vn/eigenwords.300k.200.es.zip">Spanish</a> <span class="c-orange">[Trained on Spanish Gigaword (No lowercasing or cleaning). v=300k, k=200]</span></li>
+          <li><a href="https://www.dropbox.com/s/ie5k09u1rsg4q6e/eigenwords.300k.200.it.zip">Italian</a> <span class="c-cyan">[Trained on Italian Newswire+Wiki  (No lowercasing or cleaning). v=300k, k=200]</span></li>
+          <li><a href="https://www.dropbox.com/s/472ftytnbedzncx/eigenwords.300k.200.nl.zip">Dutch</a> <span class="c-orange">[Trained on Dutch Newswire+Wiki (No lowercasing or cleaning). v=300k, k=200]</span></li>
+          <li><a href="https://www.dropbox.com/s/1sdu27pyvd2qx0j/eigenwords.11k.200.charactertokenized.zh.zip">Chinese [Simplified] [Characters]</a> <span class="c-cyan">[Trained on Chinese Gigaword. v=11k, k=200]</span></li>
+          <li><a href="https://www.dropbox.com/s/kmj0tdecwmfn336/eigenwords.300k.200.stanfordtokenized.zh.zip">Chinese [Simplified] [Stanford Tokenizer]</a> <span class="c-orange">[Trained on Chinese Gigaword. v=300k, k=200]</span></li>
+        </ul>
+      </li>
+    </ol>
+  </p>
 
-<li>
-    <em>
-        <font color=orange>
-            Influence Maximization Revisited.
-        </font></em><br>
-    Sinan Aral, <FONT COLOR="cyan">Paramveer Dhillon</FONT>.<br>
-    <FONT COLOR="#C70039">WIN</FONT> 2015.
-    <BR>
-    <FONT COLOR="#C70039">NSF-ITN</FONT> 2015.
-    <BR>
-    <font color="#39FF14">[Abstract + Talk Only]</font>
-</li>
-<p>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Anatomically-Constrained PCA for Image Parcellation.
-        </font></em><br>
-    <FONT COLOR="cyan">Paramveer Dhillon</FONT>, James Gee, Lyle Ungar, and Brian Avants.<br>
-    <FONT COLOR="#C70039">PRNI</FONT> 2013.
-    <BR>
-    <a href="papers/prni.pdf">[PDF]</a>
-</li>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Learning to Explore Scientific Workflow Repositories.
-        </font></em><br>
-    Julia Stoyanovich, <FONT  COLOR="cyan">Paramveer Dhillon</FONT>, Brian Lyons, and Susan Davidson.<br>
-    <FONT COLOR="#C70039">SSDBM</FONT> 2013.
-    <BR>
-    <a href="papers/ssdbm.pdf">[PDF]</a>
-</li>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Inference Driven Metric Learning for Graph Construction.
-        </font></em><br>
-    <FONT COLOR="cyan">Paramveer Dhillon</FONT>, Partha Pratim Talukdar, and Koby Crammer.<br>
-    <FONT COLOR="#C70039">NESCAI</FONT> 2010.
-    <BR>
-    <a href="papers/nescai10.pdf">[PDF]</a>
-</li>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Combining Appearance and Motion for Human Action Classification in Videos.
-        </font></em><br>
-    <FONT COLOR="cyan">Paramveer Dhillon</FONT>, Sebastian Nowozin, and Christoph Lampert. <br>
-    <FONT COLOR="#C70039">ViSU/CVPR</FONT> 2009.
-    <BR>
-    <a href="papers/dhillon_visu-cvpr09.pdf">[PDF]</a>
-</li>
-<p>
-<li>
-    <em>
-        <font color=orange>
-            Robust Real-Time Face Tracking Using an Active Camera.
-        </font></em><br>
-    <FONT COLOR="cyan">Paramveer Dhillon</FONT><br>
-    <FONT COLOR="#C70039">CISIS/LNCS</FONT> 2009.
-    <BR>
-    <a href="papers/dhillon_cisis.pdf">[PDF]</a>
-</li>
-<p>
-</ol>-->
+  <hr>
 
-<a name="software"></a>
-<hr>
-<p>
-<STRONG> <font color=#FF00FF><u>Software</u> </font> </STRONG>
-<p>
-<ol>
-    <li> Code and data for our <font color="cyan">Nature Human Behaviour 2018</font> paper is available <a href="https://www.dropbox.com/s/iimtqswiesl4skd/inf-max-data-code-release.zip?dl=0">here</a>.
-        <li> The ANTsR toolkit for medical image analysis (including the implementation of our <font color="cyan">NeuroImage 2014</font> paper) is available <a href= "http://stnava.github.io/ANTsR/">here</a>.
-            <li>The SWELL (Spectral Word Embedding Learning for Language) JAVA toolkit for inducing word embeddings (cf. <font color="cyan">JMLR 2015, ICML 2012, NeurIPS 2011</font>) is available <a href="https://github.com/paramveerdhillon/swell">here</a>.
-                <li> Various Eigenword (SWELL) embeddings for reproducing the results in our <font color="cyan">JMLR 2015</font> paper can be found below <font color="cyan">[No additional scaling required for embeddings. Use them as is]</font>. <font color="red">[Based on our results, OSCCA and TSCCA embeddings are the most robust and work best on a variety of tasks.]</font>
-                    <ul style="list-style-type:circle;">
-                        <li><a href="https://www.dropbox.com/s/ylail17k8yfjhrp/rcv1.oscca.100k.200.c2.gz">OSCCA (h=2)</a> <font color="cyan">[Trained on Reuters RCV1 (No lowercasing or
-                            cleaning). v=100k, k=200, context size (h)=2]</font></li>
-                        <li><a href="https://www.dropbox.com/s/hb2sscve02k60uf/rcv1.tscca.100k.200.c2.gz">TSCCA (h=2)</a> <font color="orange">[Trained on Reuters RCV1 (No lowercasing or
-                            cleaning). v=100k, k=200, context size (h)=2]</font></li>
-                        <li><a href="https://www.dropbox.com/s/xcrm1ze5u2yfshf/rcv1.lrmvl1.100k.200.c2.gz">LR-MVL(I) (h=2)</a> <font color="cyan">[Trained on Reuters RCV1 (No lowercasing or
-                            cleaning). v=100k, k=200, context size (h)=2]</font></li>
-                        <li><a href="https://www.dropbox.com/s/q2xsxxbeay2k3cw/rcv1.lrmvl2.100k.200.gz">LR-MVL(II)</a> <font color="orange">[Trained on Reuters RCV1 (No lowercasing or
-                            cleaning). v=100k, k=200, smooths=0.5</font></li>
-                        <li><a href="https://www.dropbox.com/s/625z74wwrp1vkdu/rcv1.oscca.100k.200.c10.gz">OSCCA (h=10)</a> <font color="cyan">[Trained on Reuters RCV1 (No lowercasing or
-                            cleaning). v=100k, k=200, context size (h)=10]</font></li>
-                        <li><a href="https://www.dropbox.com/s/8lhdrrj9ijqxvjc/rcv1.tscca.100k.200.c10.gz">TSCCA (h=10)</a> <font color="orange">[Trained on Reuters RCV1 (No lowercasing or
-                            cleaning). v=100k, k=200, context size (h)=10]</font></li>
-                        <li><a href="https://www.dropbox.com/s/7xhuk9cf7kk46t7/rcv1.lrmvl1.100k.200.c10.gz">LR-MVL(I) (h=10)</a> <font color="cyan">[Trained on Reuters RCV1 (No lowercasing or
-                            cleaning). v=100k, k=200, context size (h)=10]</font></li>
-                    </ul>
+  <!-- Default Statcounter code for My University Homepage
+  http://pdhillon.com -->
+  <script type="text/javascript">
+    var sc_project=6254900;
+    var sc_invisible=1;
+    var sc_security="894aded0";
+  </script>
+  <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+  <noscript>
+    <div class="statcounter">
+      <a title="Web Analytics" href="https://statcounter.com/" target="_blank">
+        <img class="statcounter" src="https://c.statcounter.com/6254900/0/894aded0/1/" alt="Web Analytics">
+      </a>
+    </div>
+  </noscript>
+  <!-- End of Statcounter Code -->
 
-                    <li> Generic eigenwords embeddings for various languages <font color="red">[Trained on much larger corpora.]</font>
-                        <ul style="list-style-type:circle;">
-                            <li><a href="https://www.dropbox.com/s/69ajc3gbabm551r/eigenwords.300k.200.en.zip">English</a> <font color="cyan">[Trained on English Gigaword (No lowercasing or
-                                cleaning). v=300k, k=200]</font></li>
-                            <li><a href="https://www.dropbox.com/s/lesbwced7riwdbz/eigenwords.300k.200.de.zip">German</a> <font color="orange">[Trained on German Newswire (No lowercasing or
-                                cleaning). v=300k, k=200]</font></li>
-                            <li><a href="https://www.dropbox.com/s/fsii7xdl4yvugpj/eigenwords.300k.200.fr.zip">French</a> <font color="cyan">[Trained on French Gigaword (No lowercasing or
-                                cleaning). v=300k, k=200]</font></li>
-                            <li><a href="https://www.dropbox.com/s/f6csj2br51bg0vn/eigenwords.300k.200.es.zip">Spanish</a> <font color="orange">[Trained on Spanish Gigaword (No lowercasing or
-                                cleaning). v=300k, k=200]</font></li>
-                            <li><a href="https://www.dropbox.com/s/ie5k09u1rsg4q6e/eigenwords.300k.200.it.zip">Italian</a> <font color="cyan">[Trained on Italian Newswire+Wiki  (No lowercasing or
-                                cleaning). v=300k, k=200]</font></li>
-                            <li><a href="https://www.dropbox.com/s/472ftytnbedzncx/eigenwords.300k.200.nl.zip">Dutch</a> <font color="orange">[Trained on Dutch Newswire+Wiki (No lowercasing or
-                                cleaning). v=300k, k=200]</font></li>
-                            <li><a href="https://www.dropbox.com/s/1sdu27pyvd2qx0j/eigenwords.11k.200.charactertokenized.zh.zip">Chinese [Simplified] [Characters]</a> <font color="cyan">[Trained on Chinese Gigaword. v=11k, k=200]</font></li>
-                            <li><a href="https://www.dropbox.com/s/kmj0tdecwmfn336/eigenwords.300k.200.stanfordtokenized.zh.zip">Chinese [Simplified] [Stanford Tokenizer]</a> <font color="orange">[Trained on Chinese Gigaword. v=300k, k=200]</font></li>
-                        </ul>
-                        </ol>
-<p>
-
-
-
-<hr>
-
-
-<!-- Default Statcounter code for My University Homepage
-http://pdhillon.com -->
-<script type="text/javascript">
-var sc_project=6254900;
-var sc_invisible=1;
-var sc_security="894aded0";
-</script>
-<script type="text/javascript"
-src="https://www.statcounter.com/counter/counter.js"
-async></script>
-<noscript><div class="statcounter"><a title="Web Analytics"
-href="https://statcounter.com/" target="_blank"><img
-class="statcounter"
-src="https://c.statcounter.com/6254900/0/894aded0/1/"
-alt="Web Analytics"></a></div></noscript>
-<!-- End of Statcounter Code -->
-
-
-
-<p>
-<font color="cyan">Last Modified:</font> 7.1.25
-</p>
+  <p>
+    <span class="c-cyan">Last Modified:</span> 1.7.26
+  </p>
+</body>
+</html>
